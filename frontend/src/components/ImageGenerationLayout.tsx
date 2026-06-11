@@ -6,6 +6,7 @@ import useSWR from "swr"
 import useSWRMutation from "swr/mutation"
 import { api } from "@/lib/api"
 import { streamOptimize } from "@/lib/optimize-helpers"
+import { downloadFile } from "@/lib/download"
 import PromptInput from "@/components/PromptInput"
 import ImageResult from "@/components/ImageResult"
 import ImageUploader from "@/components/ImageUploader"
@@ -406,19 +407,10 @@ export default function ImageGenerationLayout({ mode }: Props) {
                 <div className="flex gap-1.5">
                   <button
                     onClick={async () => {
+                      const ext = item.url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
+                      const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
                       try {
-                        const res = await fetch(item.url)
-                        const blob = await res.blob()
-                        const blobUrl = URL.createObjectURL(blob)
-                        const ext = item.url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-                        const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
-                        const a = document.createElement("a")
-                        a.href = blobUrl
-                        a.download = `baimo-${prefix}-${idx + 1}.${ext}`
-                        document.body.appendChild(a)
-                        a.click()
-                        document.body.removeChild(a)
-                        URL.revokeObjectURL(blobUrl)
+                        await downloadFile(item.url, `baimo-${prefix}-${idx + 1}.${ext}`)
                       } catch {
                         window.open(item.url, "_blank")
                       }

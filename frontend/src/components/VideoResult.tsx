@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { api } from "@/lib/api"
+import { downloadFile } from "@/lib/download"
 
 interface Props {
   url: string
@@ -21,16 +21,7 @@ export default function VideoResult({ url, onReset, posterUrl }: Props) {
 
   const handleDownload = async () => {
     try {
-      const res = await fetch(url)
-      const blob = await res.blob()
-      const blobUrl = URL.createObjectURL(blob)
-      const a = document.createElement("a")
-      a.href = blobUrl
-      a.download = `baimo-video-${Date.now()}.mp4`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(blobUrl)
+      await downloadFile(url, `baimo-video-${Date.now()}.mp4`)
     } catch {
       window.open(url, "_blank")
     }

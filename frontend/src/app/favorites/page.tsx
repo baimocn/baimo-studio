@@ -79,20 +79,12 @@ export default function FavoritesPage() {
 
   const handleDownload = async (item: GenerationItem) => {
     if (!item.result_url) return
+    const isVideo = item.type === "video"
+    const prefix = item.prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || (isVideo ? "video" : "image")
+    const ext = isVideo ? "mp4" : item.result_url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
     try {
-      const res = await fetch(item.result_url)
-      const blob = await res.blob()
-      const blobUrl = URL.createObjectURL(blob)
-      const isVideo = item.type === "video"
-      const prefix = item.prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || (isVideo ? "video" : "image")
-      const ext = isVideo ? "mp4" : item.result_url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-      const a = document.createElement("a")
-      a.href = blobUrl
-      a.download = `baimo-${prefix}-${Date.now()}.${ext}`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(blobUrl)
+      const { downloadFile } = await import("@/lib/download")
+      await downloadFile(item.result_url, `baimo-${prefix}-${Date.now()}.${ext}`)
     } catch {
       window.open(item.result_url, "_blank")
     }

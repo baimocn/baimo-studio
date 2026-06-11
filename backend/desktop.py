@@ -2,13 +2,12 @@
 baimo Studio — 桌面客户端入口
 
 用 pywebview 创建原生窗口，加载本地 FastAPI 服务。
-后端逻辑完全复用 run.py，前端静态文件不变。
+提供原生文件保存对话框桥接。
 """
 import sys
 import os
 import threading
 import time
-import webbrowser
 from pathlib import Path
 
 
@@ -71,6 +70,70 @@ def wait_for_server(url: str, timeout: float = 15):
     return False
 
 
+class NativeBridge:
+    """暴露给 JS 的原生功能桥接。"""
+
+    def __init__(self, window):
+        self._window = window
+
+    def save_file(self, url: str, filename: str) -> dict:
+        """从 URL 下载文件并弹出原生保存对话框。
+
+        Args:
+            url: 文件 URL（Agnes AI 返回的图片/视频地址）
+            filename: 默认文件名（如 baimo-image-xxx.png）
+
+        Returns:
+            {"ok": True, "path": "..."} 或 {"ok": False, "error": "..."}
+        """
+        import webview
+        import urllib.request
+        import ssl
+
+        try:
+            # 弹出原生保存对话框
+            result = self._window.create_file_dialog(
+                webview.SAVE_DIALOG,
+                save_filename=filename,
+                file_types=(f"所有文件 (*.*)",),
+            )
+
+            if not result:
+                return {"ok": False, "error": "用户取消"}
+
+            save_path = result if isinstance(result, str) else result[0]
+
+            # 下载文件
+            ctx = ssl.create_default_context()
+            with urllib.request.urlopen(url, timeout=120, context=ctx) as resp:
+                data = resp.read()
+
+            # 写入用户选择的路径
+            Path(save_path).parent.mkdir(parents=True, exist_ok=True)
+            with open(save_path, "wb") as f:
+                f.write(data)
+
+            return {"ok": True, "path": save_path}
+
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+
+    def open_folder(self, path: str) -> dict:
+        """打开文件所在的文件夹。"""
+        import subprocess
+        try:
+            folder = str(Path(path).parent)
+            if sys.platform == "win32":
+                subprocess.Popen(["explorer", folder])
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", folder])
+            else:
+                subprocess.Popen(["xdg-open", folder])
+            return {"ok": True}
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+
+
 def main():
     import webview
 
@@ -112,16 +175,21 @@ def main():
         text_select=True,
     )
 
+    # 注册原生桥接（窗口加载后 JS 可调用 window.pywebview.api.save_file）
+    bridge = NativeBridge(window)
+    window.expose(bridge.save_file)
+    window.expose(bridge.open_folder)
+
     # 窗口关闭时停止服务器
     def on_closed():
         stop_event.set()
 
     window.events.closed += on_closed
 
-    # 启动 GUI 事件循环（阻塞直到窗口关闭）
+    # 启动 GUI 事件循环
     webview.start(debug=False)
 
-    # 窗口关闭后清理
+    # 清理
     stop_event.set()
     time.sleep(0.5)
     print("baimo Studio 已退出")

@@ -407,17 +407,9 @@ export default function WorkflowPage() {
             </button>
             <button
               onClick={async () => {
+                const { downloadFile } = await import("@/lib/download")
                 try {
-                  const res = await fetch(generatedUrl)
-                  const blob = await res.blob()
-                  const blobUrl = URL.createObjectURL(blob)
-                  const a = document.createElement("a")
-                  a.href = blobUrl
-                  a.download = `baimo-workflow-${Date.now()}.png`
-                  document.body.appendChild(a)
-                  a.click()
-                  document.body.removeChild(a)
-                  URL.revokeObjectURL(blobUrl)
+                  await downloadFile(generatedUrl, `baimo-workflow-${Date.now()}.png`)
                 } catch {
                   window.open(generatedUrl, "_blank")
                 }

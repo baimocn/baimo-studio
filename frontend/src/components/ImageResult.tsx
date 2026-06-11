@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import gsap from "gsap"
 import { api } from "@/lib/api"
+import { downloadFile } from "@/lib/download"
 
 interface Props {
   url: string
@@ -52,21 +53,11 @@ export default function ImageResult({ url, model, onReset, prompt, id, isFavorit
   }
 
   const handleDownload = async () => {
+    const ext = url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
+    const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
     try {
-      const res = await fetch(url)
-      const blob = await res.blob()
-      const blobUrl = URL.createObjectURL(blob)
-      const ext = url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-      const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
-      const a = document.createElement("a")
-      a.href = blobUrl
-      a.download = `baimo-${prefix}-${Date.now()}.${ext}`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(blobUrl)
+      await downloadFile(url, `baimo-${prefix}-${Date.now()}.${ext}`)
     } catch {
-      // 降级：直接打开链接
       window.open(url, "_blank")
     }
   }
