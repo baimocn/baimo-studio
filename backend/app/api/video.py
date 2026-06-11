@@ -35,7 +35,7 @@ async def create(body: VideoCreateRequest, db: AsyncSession = Depends(get_db), v
         num_inference_steps=body.num_inference_steps,
     )
     gen = Generation(
-        type="video", model="agnes-video",
+        type="video", model="agnes-video-v2.0",
         prompt=body.prompt, result_url=result.get("video_id"), status="pending",
     )
     db.add(gen)

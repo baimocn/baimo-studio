@@ -7,6 +7,14 @@ from .base import AgnesBaseService
 
 logger = logging.getLogger("baimo")
 
+# 前端 mode 到 API mode 的映射
+_MODE_MAP = {
+    "text2video": None,      # 文生视频不需要传 mode
+    "image2video": None,     # 图生视频通过 image 参数自动推断
+    "keyframes": "keyframes",
+    "multi-image": None,     # 多图通过 extra_body.image 自动推断
+}
+
 
 class AgnesVideoService(AgnesBaseService):
     CREATE_URL = f"{settings.agnes_api_base}/v1/videos"
@@ -33,12 +41,18 @@ class AgnesVideoService(AgnesBaseService):
         image_url = kwargs.get("image_url")
         mode = kwargs.get("mode")
 
-        if image_url and mode == "keyframes":
+        # 映射前端 mode 到 API mode
+        api_mode = _MODE_MAP.get(mode) if mode else None
+
+        if api_mode == "keyframes" and image_url:
+            # 关键帧动画：多图放在 extra_body，mode 也放 extra_body
             images = image_url if isinstance(image_url, list) else [image_url]
             payload["extra_body"] = {"image": images, "mode": "keyframes"}
         elif image_url and isinstance(image_url, list):
+            # 多图视频：图片放在 extra_body
             payload["extra_body"] = {"image": image_url}
         elif image_url:
+            # 单图生视频：image 放在顶层
             payload["image"] = image_url
 
         return payload
@@ -50,15 +64,16 @@ class AgnesVideoService(AgnesBaseService):
         try:
             data = resp.json()
             return {
-                "video_id": data["video_id"],
-                "task_id": data["task_id"],
-                "status": data["status"],
+                "video_id": data.get("video_id", ""),
+                "task_id": data.get("task_id", data.get("id", "")),
+                "status": data.get("status", "queued"),
             }
         except (KeyError, TypeError) as e:
             logger.error(f"Agnes Video API response parse error: {e}, response: {resp.text[:500]}")
             raise AgnesAPIException("Agnes API 返回了无法解析的响应")
 
     async def poll_status(self, video_id: str) -> dict:
+        """轮询视频状态。官方文档：视频 URL 在 remixed_from_video_id 字段。"""
         encoded_id = quote(video_id, safe="")
         url = f"{self.POLL_URL}?video_id={encoded_id}"
 
@@ -81,8 +96,12 @@ class AgnesVideoService(AgnesBaseService):
         }
 
         if status_val == "completed":
-            # Agnes API 在 completed 时将视频 URL 放在 remixed_from_video_id 字段
-            result["video_url"] = data.get("remixed_from_video_id") or data.get("video_url") or data.get("url")
+            # 官方文档明确：视频 URL 在 remixed_from_video_id 字段
+            video_url = data.get("remixed_from_video_id")
+            if not video_url:
+                # 防御性 fallback
+                video_url = data.get("video_url") or data.get("url")
+            result["video_url"] = video_url
         elif status_val == "failed":
             result["error"] = data.get("error") or data.get("message") or "视频生成失败"
 

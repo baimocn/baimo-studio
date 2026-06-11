@@ -18,6 +18,8 @@ ALLOWED_DOWNLOAD_HOSTS: set[str] = {
     "storage.googleapis.com",
     "platform-outputs.agnes-ai.space",
     "apihub.agnes-ai.com",
+    "localhost",
+    "127.0.0.1",
 }
 
 # ---------------------------------------------------------------------------
