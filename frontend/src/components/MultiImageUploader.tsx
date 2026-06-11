@@ -4,56 +4,59 @@ import { useCallback, useRef, useState } from "react"
 import { useToast } from "@/components/Toast"
 
 interface Props {
-  onUpload: (dataUris: string[]) => void
+  onUpload: (urls: string[]) => void
   maxFiles?: number
   maxFileSizeMB?: number
 }
 
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp", "image/svg+xml"]
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || ""
 
-function fileToDataUri(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = reject
-    reader.readAsDataURL(file)
-  })
+async function uploadToBackend(file: File): Promise<string> {
+  const form = new FormData()
+  form.append("file", file)
+  const res = await fetch(`${API_BASE}/api/image/upload`, { method: "POST", body: form })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: "上传失败" }))
+    throw new Error(err.detail || "上传失败")
+  }
+  const data = await res.json()
+  return data.url as string
 }
 
-export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSizeMB = 10 }: Props) {
-  const [previews, setPreviews] = useState<{ url: string; dataUri: string }[]>([])
+export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSizeMB = 20 }: Props) {
+  const [previews, setPreviews] = useState<{ blobUrl: string; serverUrl: string }[]>([])
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
   const blobUrlsRef = useRef<string[]>([])
   const toast = useToast()
 
   const handleFiles = useCallback(
     async (files: FileList | File[]) => {
       setLoading(true)
-      setError(null)
-      const newEntries: { url: string; dataUri: string }[] = []
+      const newEntries: { blobUrl: string; serverUrl: string }[] = []
       for (const file of Array.from(files)) {
         if (previews.length + newEntries.length >= maxFiles) break
         if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
-          toast.error(`文件 ${file.name} 不是支持的图片格式，请上传 JPG/PNG/WebP/GIF 格式`)
+          toast.error(`文件 ${file.name} 不是支持的图片格式`)
           continue
         }
         if (file.size > maxFileSizeMB * 1024 * 1024) {
-          toast.error(`文件 ${file.name} 超过 ${maxFileSizeMB}MB 限制，请压缩后重试`)
+          toast.error(`文件 ${file.name} 超过 ${maxFileSizeMB}MB 限制`)
           continue
         }
         const blobUrl = URL.createObjectURL(file)
         blobUrlsRef.current.push(blobUrl)
         try {
-          const dataUri = await fileToDataUri(file)
-          newEntries.push({ url: blobUrl, dataUri })
-        } catch {
+          const serverUrl = await uploadToBackend(file)
+          newEntries.push({ blobUrl, serverUrl })
+        } catch (err) {
           URL.revokeObjectURL(blobUrl)
+          toast.error(err instanceof Error ? err.message : `上传 ${file.name} 失败`)
         }
       }
       const updated = [...previews, ...newEntries]
       setPreviews(updated)
-      onUpload(updated.map((e) => e.dataUri))
+      onUpload(updated.map((e) => e.serverUrl))
       setLoading(false)
     },
     [previews, maxFiles, maxFileSizeMB, onUpload, toast]
@@ -62,11 +65,10 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
   const handleRemove = useCallback(
     (index: number) => {
       const removed = previews[index]
-      if (removed) URL.revokeObjectURL(removed.url)
+      if (removed) URL.revokeObjectURL(removed.blobUrl)
       const updated = previews.filter((_, i) => i !== index)
       setPreviews(updated)
-      setError(null)
-      onUpload(updated.map((e) => e.dataUri))
+      onUpload(updated.map((e) => e.serverUrl))
     },
     [previews, onUpload]
   )
@@ -77,17 +79,11 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
         上传图片（已选 {previews.length} 张）
       </label>
 
-      {error && (
-        <div className="rounded-lg bg-[#ef4444]/10 border border-[#ef4444]/20 px-3 py-2 text-xs text-[#ef4444]">
-          {error}
-        </div>
-      )}
-
       {previews.length > 0 && (
         <div className="grid grid-cols-3 gap-3">
           {previews.map((p, i) => (
             <div key={i} className="relative group">
-              <img src={p.url} alt={`图片 ${i + 1}`} className="h-32 w-full rounded-xl object-cover shadow-sm border border-white/[0.08]" />
+              <img src={p.blobUrl} alt={`图片 ${i + 1}`} className="h-32 w-full rounded-xl object-cover shadow-sm border border-white/[0.08]" />
               <span className="absolute left-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#a855f7] text-xs text-white font-medium">
                 {i + 1}
               </span>
@@ -115,7 +111,7 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
           {loading ? (
             <div className="flex items-center gap-2">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#a855f7] border-t-transparent" />
-              <span className="text-xs text-[#71717a]">读取中...</span>
+              <span className="text-xs text-[#71717a]">上传中...</span>
             </div>
           ) : (
             <>

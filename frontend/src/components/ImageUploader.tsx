@@ -9,16 +9,20 @@ interface Props {
   emptyHint?: string
 }
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || ""
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp", "image/svg+xml"]
-const MAX_FILE_SIZE_MB = 10
+const MAX_FILE_SIZE_MB = 20
 
-function fileToDataUri(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = reject
-    reader.readAsDataURL(file)
-  })
+async function uploadToBackend(file: File): Promise<string> {
+  const form = new FormData()
+  form.append("file", file)
+  const res = await fetch(`${API_BASE}/api/image/upload`, { method: "POST", body: form })
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: "上传失败" }))
+    throw new Error(err.detail || "上传失败")
+  }
+  const data = await res.json()
+  return data.url as string
 }
 
 export default function ImageUploader({ onUpload, onError, emptyHint }: Props) {
@@ -44,10 +48,10 @@ export default function ImageUploader({ onUpload, onError, emptyHint }: Props) {
       setPreview(blobUrl)
 
       try {
-        const dataUri = await fileToDataUri(file)
-        onUpload(dataUri)
-      } catch {
-        if (onError) onError("图片读取失败，请重试")
+        const url = await uploadToBackend(file)
+        onUpload(url)
+      } catch (err) {
+        if (onError) onError(err instanceof Error ? err.message : "图片上传失败")
       } finally {
         setLoading(false)
       }
@@ -86,7 +90,7 @@ export default function ImageUploader({ onUpload, onError, emptyHint }: Props) {
         {loading && (
           <div className="flex items-center gap-2">
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#a855f7] border-t-transparent" />
-            <span className="text-xs text-[#71717a]">读取中...</span>
+            <span className="text-xs text-[#71717a]">上传中...</span>
           </div>
         )}
         {preview && !loading ? (

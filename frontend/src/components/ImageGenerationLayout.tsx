@@ -111,7 +111,7 @@ export default function ImageGenerationLayout({ mode }: Props) {
 
   const { trigger: batchTrigger, data: batchData, isMutating: batchMutating, error: batchError, reset: batchReset } = useSWRMutation(
     mode === "generate" ? "image-batch-generate" : null,
-    () => api.image.batchGenerate({ prompt, size, model, num_images: numImages })
+    () => api.image.batchGenerate({ prompt, size, model, num_images: numImages, negative_prompt: negativePrompt || undefined })
   )
 
   const { trigger: editTrigger, data: editData, isMutating: editMutating, error: editError, reset: editReset } = useSWRMutation(

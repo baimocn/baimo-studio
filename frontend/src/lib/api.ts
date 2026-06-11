@@ -80,7 +80,7 @@ export const api = {
         method: "POST",
         body: JSON.stringify(data),
       }),
-    batchGenerate: (data: { prompt: string; size: string; model: string; num_images: number; seed?: number }) =>
+    batchGenerate: (data: { prompt: string; size: string; model: string; num_images: number; seed?: number; negative_prompt?: string }) =>
       request<{ results: { url: string; model: string; seed: number }[]; total: number }>("/api/image/batch-generate", {
         method: "POST",
         body: JSON.stringify(data),

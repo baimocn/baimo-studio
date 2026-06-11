@@ -103,6 +103,11 @@ async def health():
     return {"status": "ok"}
 
 
+# 上传文件的静态服务（图生图、多图合成需要可访问的 URL）
+UPLOADS_DIR = Path(__file__).resolve().parent.parent / "uploads"
+UPLOADS_DIR.mkdir(exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=str(UPLOADS_DIR)), name="uploads")
+
 if STATIC_DIR.exists():
     app.mount("/_next", StaticFiles(directory=str(STATIC_DIR / "_next")), name="next-assets")
 

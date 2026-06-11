@@ -4,7 +4,7 @@ import re
 import time
 
 import httpx
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
 from fastapi.responses import StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -104,3 +104,36 @@ async def download(url: str = Query(..., description="图片文件 URL")):
         headers["Content-Type"] = content_type
 
     return StreamingResponse(iter([resp.content]), headers=headers)
+
+
+@router.post("/upload")
+async def upload_image(file: UploadFile = File(...)):
+    """上传图片文件，返回可访问的 URL。用于图生图、多图合成等需要图片 URL 的场景。"""
+    import uuid
+    from pathlib import Path
+    from fastapi.responses import JSONResponse
+
+    # 验证文件类型
+    if not file.content_type or not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="仅支持图片文件")
+
+    # 读取文件内容
+    content = await file.read()
+    if len(content) > 20 * 1024 * 1024:  # 20MB 限制
+        raise HTTPException(status_code=413, detail="文件大小不能超过 20MB")
+
+    # 保存到临时目录
+    upload_dir = Path("uploads")
+    upload_dir.mkdir(exist_ok=True)
+
+    # 确定扩展名
+    ext = Path(file.filename or "image.png").suffix or ".png"
+    filename = f"{uuid.uuid4().hex}{ext}"
+    filepath = upload_dir / filename
+
+    filepath.write_bytes(content)
+
+    # 返回可访问的 URL
+    base_url = "http://localhost:5180"
+    url = f"{base_url}/uploads/{filename}"
+    return JSONResponse({"url": url, "filename": filename, "size": len(content)})
