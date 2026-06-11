@@ -1,0 +1,46 @@
+# ─── Python ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ─── Node.js ──────────────────────────────────
+node_modules/
+.next/
+
+# ─── Environment / Secrets ────────────────────
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+
+# ─── Build artifacts ──────────────────────────
+dist/
+build/
+*.spec
+backend/static/
+
+# ─── Logs ─────────────────────────────────────
+*.log
+
+# ─── IDE / Editor ─────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── OS ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Internal planning ────────────────────────
+.planning/
+.playwright-mcp/
+
+# ─── Database (runtime) ───────────────────────
+backend/data/
+*.db
+*.db-journal

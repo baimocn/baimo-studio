@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="neon" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cloud1" x1="40" y1="60" x2="160" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="cloud2" x1="60" y1="80" x2="140" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="ink-blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    <filter id="ink-blur-light">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="200" height="200" rx="40" fill="#0a0a0a"/>
+
+  <g opacity="0.15" filter="url(#glow)">
+    <circle cx="60" cy="80" r="50" fill="#a855f7"/>
+    <circle cx="140" cy="120" r="40" fill="#06b6d4"/>
+  </g>
+
+  <g transform="translate(30, 50)">
+    <path d="M20 80 C25 40, 50 15, 80 20 C90 5, 115 5, 120 20 C140 10, 155 25, 145 45 C160 50, 155 70, 140 70 C145 85, 130 95, 115 85 C105 95, 85 95, 80 85 C65 95, 45 90, 40 80 C25 85, 15 90, 20 80 Z" fill="url(#cloud1)" filter="url(#ink-blur)"/>
+
+    <path d="M40 70 C45 45, 65 30, 85 35 C95 25, 110 25, 115 35 C130 28, 140 38, 135 50 C145 55, 142 68, 132 65 C135 75, 125 82, 115 75 C108 82, 95 82, 90 75 C80 82, 65 80, 60 72 C50 78, 38 78, 40 70 Z" fill="url(#cloud2)" filter="url(#ink-blur-light)"/>
+
+    <path d="M55 65 C58 50, 72 40, 85 42 C92 35, 102 36, 105 42 C115 38, 122 45, 118 52 C125 55, 123 63, 116 62 C118 68, 112 73, 105 68 C100 73, 90 73, 87 68 C80 73, 68 72, 65 66 C58 70, 52 70, 55 65 Z" fill="white" opacity="0.3" filter="url(#ink-blur-light)"/>
+  </g>
+
+  <g opacity="0.08">
+    <path d="M50 160 Q70 150, 90 160 Q110 170, 130 155 Q150 145, 170 155" stroke="white" stroke-width="1" fill="none" filter="url(#ink-blur)"/>
+    <path d="M30 170 Q60 158, 90 168 Q120 178, 150 162 Q165 155, 180 160" stroke="white" stroke-width="0.8" fill="none" filter="url(#ink-blur)"/>
+  </g>
+
+  <text x="100" y="125" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="bold" fill="white" opacity="0.9">b</text>
+
+  <text x="100" y="155" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" letter-spacing="4" fill="white" opacity="0.5">STUDIO</text>
+</svg>
