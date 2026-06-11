@@ -51,16 +51,24 @@ export default function ImageResult({ url, model, onReset, prompt, id, isFavorit
     }
   }
 
-  const handleDownload = () => {
-    const ext = url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-    const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
-    const downloadUrl = api.image.downloadUrl(url)
-    const a = document.createElement("a")
-    a.href = downloadUrl
-    a.download = `baimo-${prefix}-${Date.now()}.${ext}`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+  const handleDownload = async () => {
+    try {
+      const res = await fetch(url)
+      const blob = await res.blob()
+      const blobUrl = URL.createObjectURL(blob)
+      const ext = url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
+      const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
+      const a = document.createElement("a")
+      a.href = blobUrl
+      a.download = `baimo-${prefix}-${Date.now()}.${ext}`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(blobUrl)
+    } catch {
+      // 降级：直接打开链接
+      window.open(url, "_blank")
+    }
   }
 
   return (

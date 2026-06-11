@@ -19,14 +19,21 @@ export default function VideoResult({ url, onReset, posterUrl }: Props) {
     setIsReady(false)
   }, [url])
 
-  const handleDownload = () => {
-    const downloadUrl = api.video.downloadUrl(url)
-    const a = document.createElement("a")
-    a.href = downloadUrl
-    a.download = `baimo-video-${Date.now()}.mp4`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+  const handleDownload = async () => {
+    try {
+      const res = await fetch(url)
+      const blob = await res.blob()
+      const blobUrl = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = blobUrl
+      a.download = `baimo-video-${Date.now()}.mp4`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(blobUrl)
+    } catch {
+      window.open(url, "_blank")
+    }
   }
 
   return (

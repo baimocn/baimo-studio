@@ -77,22 +77,25 @@ export default function FavoritesPage() {
     }
   }
 
-  const handleDownload = (item: GenerationItem) => {
+  const handleDownload = async (item: GenerationItem) => {
     if (!item.result_url) return
-    const isVideo = item.type === "video"
-    const prefix = item.prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || (isVideo ? "video" : "image")
-    const ext = isVideo
-      ? "mp4"
-      : item.result_url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-    const downloadUrl = isVideo
-      ? api.video.downloadUrl(item.result_url)
-      : api.image.downloadUrl(item.result_url)
-    const a = document.createElement("a")
-    a.href = downloadUrl
-    a.download = `baimo-${prefix}-${Date.now()}.${ext}`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    try {
+      const res = await fetch(item.result_url)
+      const blob = await res.blob()
+      const blobUrl = URL.createObjectURL(blob)
+      const isVideo = item.type === "video"
+      const prefix = item.prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || (isVideo ? "video" : "image")
+      const ext = isVideo ? "mp4" : item.result_url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
+      const a = document.createElement("a")
+      a.href = blobUrl
+      a.download = `baimo-${prefix}-${Date.now()}.${ext}`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(blobUrl)
+    } catch {
+      window.open(item.result_url, "_blank")
+    }
   }
 
   const totalPages = Math.ceil(total / limit)

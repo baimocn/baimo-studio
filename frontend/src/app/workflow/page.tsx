@@ -405,13 +405,27 @@ export default function WorkflowPage() {
             >
               重新开始
             </button>
-            <a
-              href={api.image.downloadUrl(generatedUrl)}
-              download
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch(generatedUrl)
+                  const blob = await res.blob()
+                  const blobUrl = URL.createObjectURL(blob)
+                  const a = document.createElement("a")
+                  a.href = blobUrl
+                  a.download = `baimo-workflow-${Date.now()}.png`
+                  document.body.appendChild(a)
+                  a.click()
+                  document.body.removeChild(a)
+                  URL.revokeObjectURL(blobUrl)
+                } catch {
+                  window.open(generatedUrl, "_blank")
+                }
+              }}
               className="flex-1 rounded-xl bg-[#a855f7] px-6 py-3 text-sm font-semibold text-white text-center transition-all hover:bg-[#9333ea] hover:shadow-lg hover:shadow-[#a855f7]/20"
             >
               下载结果
-            </a>
+            </button>
             <Link
               href="/image"
               className="flex-1 rounded-xl border border-[#a855f7]/30 bg-[#a855f7]/10 px-6 py-3 text-sm font-medium text-[#a855f7] text-center transition-all hover:bg-[#a855f7]/20"

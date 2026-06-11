@@ -405,16 +405,23 @@ export default function ImageGenerationLayout({ mode }: Props) {
                 <span className="text-xs text-[#71717a]">seed: {item.seed}</span>
                 <div className="flex gap-1.5">
                   <button
-                    onClick={() => {
-                      const ext = item.url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
-                      const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
-                      const downloadUrl = api.image.downloadUrl(item.url)
-                      const a = document.createElement("a")
-                      a.href = downloadUrl
-                      a.download = `baimo-${prefix}-${idx + 1}.${ext}`
-                      document.body.appendChild(a)
-                      a.click()
-                      document.body.removeChild(a)
+                    onClick={async () => {
+                      try {
+                        const res = await fetch(item.url)
+                        const blob = await res.blob()
+                        const blobUrl = URL.createObjectURL(blob)
+                        const ext = item.url.match(/\.(png|jpe?g|webp|gif)/i)?.[1] || "png"
+                        const prefix = prompt?.replace(/[^a-zA-Z0-9一-鿿]/g, "").slice(0, 20) || "image"
+                        const a = document.createElement("a")
+                        a.href = blobUrl
+                        a.download = `baimo-${prefix}-${idx + 1}.${ext}`
+                        document.body.appendChild(a)
+                        a.click()
+                        document.body.removeChild(a)
+                        URL.revokeObjectURL(blobUrl)
+                      } catch {
+                        window.open(item.url, "_blank")
+                      }
                     }}
                     className="rounded-lg bg-gradient-to-r from-[#a855f7] to-[#06b6d4] px-3 py-2 min-h-[44px] text-xs font-medium text-white transition hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]"
                   >
