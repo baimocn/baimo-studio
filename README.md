@@ -155,7 +155,7 @@ baimo-studio/
 
 ## 许可证
 
-[MIT License](LICENSE)
+[GNU General Public License v3.0](LICENSE)
 
 ## 致谢
 
