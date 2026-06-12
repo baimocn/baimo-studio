@@ -53,7 +53,6 @@ def _build_payload(user_input: str, type: str, stream: bool = False) -> dict:
         ],
         "temperature": 0.45,
         "max_tokens": 768,
-        "chat_template_kwargs": {"enable_thinking": True},
     }
     if stream:
         payload["stream"] = True
