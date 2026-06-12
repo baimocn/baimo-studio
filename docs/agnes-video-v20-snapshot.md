@@ -1,0 +1,1475 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e4]: Agnes AI | AI Gateway, Free AI API & AI Applications
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "Agnes AI 首页" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "Agnes AI" [ref=e8]
+      - navigation [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11] [cursor=pointer]: 模型
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "文本"
+                    - generic: 文本
+                  - generic:
+                    - link "Agnes 1.5 Flash":
+                      - /url: /doc/agnes-15-flash
+                      - generic:
+                        - generic: Agnes 1.5 Flash
+                    - link "Agnes 2.0 Flash new":
+                      - /url: /doc/agnes-20-flash
+                      - generic:
+                        - generic: Agnes 2.0 Flash
+                        - img "new"
+                - generic:
+                  - generic:
+                    - img "图像"
+                    - generic: 图像
+                  - generic:
+                    - link "Agnes Image 2.0 Flash new":
+                      - /url: /doc/agnes-image-20-flash
+                      - generic:
+                        - generic: Agnes Image 2.0 Flash
+                        - img "new"
+                    - link "Agnes Image 2.1 Flash new":
+                      - /url: /doc/agnes-image-21-flash
+                      - generic:
+                        - generic: Agnes Image 2.1 Flash
+                        - img "new"
+                - generic:
+                  - generic:
+                    - img "视频"
+                    - generic: 视频
+                  - generic:
+                    - link "Agnes Video V2.0 new":
+                      - /url: /doc/agnes-video-v20
+                      - generic:
+                        - generic: Agnes Video V2.0
+                        - img "new"
+        - generic [ref=e12]:
+          - generic [ref=e13] [cursor=pointer]: 产品
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "AI 原生应用"
+                    - generic: AI 原生应用
+                  - generic:
+                    - link "Agnes":
+                      - /url: https://app.agnes-ai.com
+                      - generic:
+                        - generic: Agnes
+                      - img
+                    - link "Pavo":
+                      - /url: https://app.pavo-ai.work
+                      - generic:
+                        - generic: Pavo
+                      - img
+                    - generic:
+                      - generic:
+                        - generic: Echo
+                      - img
+        - generic [ref=e14]:
+          - generic [ref=e15] [cursor=pointer]: API
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "在 Agnes 上开发"
+                    - generic: 在 Agnes 上开发
+                  - generic:
+                    - link "开发者文档":
+                      - /url: /doc/overview
+                      - generic:
+                        - generic: 开发者文档
+                    - link "API 平台":
+                      - /url: https://platform.agnes-ai.com
+                      - generic:
+                        - generic: API 平台
+                      - img
+        - generic [ref=e16]:
+          - generic [ref=e17] [cursor=pointer]: 公司
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "公司"
+                    - generic: 公司
+                  - generic:
+                    - link "隐私政策":
+                      - /url: /doc/privacy-policy
+                      - generic:
+                        - generic: 隐私政策
+                    - link "服务条款":
+                      - /url: /doc/terms-of-service
+                      - generic:
+                        - generic: 服务条款
+        - generic [ref=e18]:
+          - generic [ref=e19] [cursor=pointer]: 社区
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "加入我们"
+                    - generic: 加入我们
+                  - generic:
+                    - link "线下活动":
+                      - /url: /meetups
+                      - generic:
+                        - generic: 线下活动
+                    - link "Discord":
+                      - /url: https://discord.com/invite/buKQPVMW2s
+                      - generic:
+                        - generic: Discord
+                      - img
+                    - button "WeChat":
+                      - generic:
+                        - generic: WeChat
+        - link "研究" [ref=e20] [cursor=pointer]:
+          - /url: /research
+        - link "商务" [ref=e21] [cursor=pointer]:
+          - /url: /business
+    - generic [ref=e22]:
+      - button "登录" [ref=e23] [cursor=pointer]
+      - generic:
+        - menu:
+          - menuitem "API 平台":
+            - generic: API 平台
+            - img
+          - menuitem "Agnes":
+            - generic: Agnes
+            - img
+          - menuitem "Pavo":
+            - generic: Pavo
+            - img
+  - generic [ref=e25]:
+    - complementary [ref=e26]:
+      - generic [ref=e28]:
+        - generic:
+          - img
+        - generic [ref=e29] [cursor=pointer]:
+          - generic "简体中文" [ref=e30]:
+            - text: 简体中文
+            - combobox [ref=e31]
+          - img "down" [ref=e33]:
+            - img [ref=e34]
+      - generic [ref=e36]:
+        - generic [ref=e38]:
+          - generic:
+            - img
+          - textbox "搜索…" [ref=e39]
+        - generic [ref=e42]:
+          - heading [level=4]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - generic [ref=e45]:
+                - button "开始使用" [ref=e46] [cursor=pointer]
+                - img [ref=e48] [cursor=pointer]
+            - listitem [ref=e50]:
+              - generic [ref=e51]:
+                - button "模型" [ref=e52] [cursor=pointer]
+                - img [ref=e54] [cursor=pointer]
+              - list [ref=e56]:
+                - listitem [ref=e57]:
+                  - generic [ref=e58]:
+                    - button "文本" [ref=e59] [cursor=pointer]
+                    - img [ref=e61] [cursor=pointer]
+                - listitem [ref=e63]:
+                  - generic [ref=e64]:
+                    - button "图像" [ref=e65] [cursor=pointer]
+                    - img [ref=e67] [cursor=pointer]
+                - listitem [ref=e69]:
+                  - generic [ref=e70]:
+                    - button "视频" [ref=e71] [cursor=pointer]
+                    - img [ref=e73] [cursor=pointer]
+                  - list [ref=e75]:
+                    - listitem [ref=e76]:
+                      - button "Agnes Video V2.0" [ref=e78] [cursor=pointer]
+            - listitem [ref=e79]:
+              - generic [ref=e80]:
+                - button "FAQs" [ref=e81] [cursor=pointer]
+                - img [ref=e83] [cursor=pointer]
+            - listitem [ref=e85]:
+              - generic [ref=e86]:
+                - button "常见接入文档" [ref=e87] [cursor=pointer]
+                - img [ref=e89] [cursor=pointer]
+            - listitem [ref=e91]:
+              - generic [ref=e92]:
+                - button "条款与政策" [ref=e93] [cursor=pointer]
+                - img [ref=e95] [cursor=pointer]
+    - main [ref=e97]:
+      - generic [ref=e98]:
+        - button "复制页面" [ref=e100] [cursor=pointer]:
+          - img [ref=e101]
+          - text: 复制页面
+        - main [ref=e103]:
+          - heading "Agnes-Video-V2.0 API 接入指南" [level=2] [ref=e104]:
+            - generic [ref=e105]:
+              - link "Agnes-Video-V2.0 API 接入指南" [ref=e106] [cursor=pointer]:
+                - /url: "#3764a189eee5804ba179c8f99ceeeec5"
+                - img [ref=e107]
+              - text: Agnes-Video-V2.0 API 接入指南
+          - heading "概述" [level=3] [ref=e109]:
+            - generic [ref=e110]:
+              - link "概述" [ref=e111] [cursor=pointer]:
+                - /url: "#3764a189eee5802a939ac7d361f2420d"
+                - img [ref=e112]
+              - text: 概述
+          - generic [ref=e114]: Agnes-Video-V2.0 是一款面向生产环境的视频生成模型，支持 文生视频、图生视频、多图视频生成 和 关键帧动画 工作流。
+          - generic [ref=e115]: 开发者可以通过文本提示词、图片 URL 或多张参考图片生成高质量视频。该模型适用于故事创作、营销视频、产品演示、社交媒体内容、App 动态素材以及 AI 创意工作流。
+          - generic [ref=e116]:
+            - text: Agnes-Video-V2.0 采用异步任务式 API。你需要先创建视频生成任务，然后使用返回的
+            - code [ref=e117]: video_id
+            - text: 或
+            - code [ref=e118]: task_id
+            - text: 查询视频结果。
+          - separator [ref=e119]
+          - heading "支持能力" [level=3] [ref=e120]:
+            - generic [ref=e121]:
+              - link "支持能力" [ref=e122] [cursor=pointer]:
+                - /url: "#3764a189eee58041b082d19d7754b425"
+                - img [ref=e123]
+              - text: 支持能力
+          - table [ref=e125]:
+            - rowgroup [ref=e126]:
+              - row "能力 说明" [ref=e127]:
+                - cell "能力" [ref=e128]:
+                  - generic [ref=e129]: 能力
+                - cell "说明" [ref=e130]:
+                  - generic [ref=e131]: 说明
+              - row "文生视频 根据文本提示词直接生成视频" [ref=e132]:
+                - cell "文生视频" [ref=e133]:
+                  - generic [ref=e134]: 文生视频
+                - cell "根据文本提示词直接生成视频" [ref=e135]:
+                  - generic [ref=e136]: 根据文本提示词直接生成视频
+              - row "图生视频 将静态图片动画化为动态视频" [ref=e137]:
+                - cell "图生视频" [ref=e138]:
+                  - generic [ref=e139]: 图生视频
+                - cell "将静态图片动画化为动态视频" [ref=e140]:
+                  - generic [ref=e141]: 将静态图片动画化为动态视频
+              - row "多图视频生成 使用多张参考图片指导视频生成" [ref=e142]:
+                - cell "多图视频生成" [ref=e143]:
+                  - generic [ref=e144]: 多图视频生成
+                - cell "使用多张参考图片指导视频生成" [ref=e145]:
+                  - generic [ref=e146]: 使用多张参考图片指导视频生成
+              - row "关键帧动画 在多个关键帧之间生成平滑过渡" [ref=e147]:
+                - cell "关键帧动画" [ref=e148]:
+                  - generic [ref=e149]: 关键帧动画
+                - cell "在多个关键帧之间生成平滑过渡" [ref=e150]:
+                  - generic [ref=e151]: 在多个关键帧之间生成平滑过渡
+              - row "场景运动控制 通过提示词控制主体动作、镜头运动和场景动态" [ref=e152]:
+                - cell "场景运动控制" [ref=e153]:
+                  - generic [ref=e154]: 场景运动控制
+                - cell "通过提示词控制主体动作、镜头运动和场景动态" [ref=e155]:
+                  - generic [ref=e156]: 通过提示词控制主体动作、镜头运动和场景动态
+              - row "视觉一致性 在多帧之间保持主体、风格和场景一致" [ref=e157]:
+                - cell "视觉一致性" [ref=e158]:
+                  - generic [ref=e159]: 视觉一致性
+                - cell "在多帧之间保持主体、风格和场景一致" [ref=e160]:
+                  - generic [ref=e161]: 在多帧之间保持主体、风格和场景一致
+              - row "电影级输出 生成高质量电影级视频" [ref=e162]:
+                - cell "电影级输出" [ref=e163]:
+                  - generic [ref=e164]: 电影级输出
+                - cell "生成高质量电影级视频" [ref=e165]:
+                  - generic [ref=e166]: 生成高质量电影级视频
+              - row "异步 API 先提交任务，再查询生成结果" [ref=e167]:
+                - cell "异步 API" [ref=e168]:
+                  - generic [ref=e169]: 异步 API
+                - cell "先提交任务，再查询生成结果" [ref=e170]:
+                  - generic [ref=e171]: 先提交任务，再查询生成结果
+          - separator [ref=e172]
+          - heading "适用场景" [level=3] [ref=e173]:
+            - generic [ref=e174]:
+              - link "适用场景" [ref=e175] [cursor=pointer]:
+                - /url: "#3764a189eee580ec87bfc98f9885d0c6"
+                - img [ref=e176]
+              - text: 适用场景
+          - table [ref=e178]:
+            - rowgroup [ref=e179]:
+              - row "场景 示例" [ref=e180]:
+                - cell "场景" [ref=e181]:
+                  - generic [ref=e182]: 场景
+                - cell "示例" [ref=e183]:
+                  - generic [ref=e184]: 示例
+              - row "故事创作 短片、角色场景、叙事片段" [ref=e185]:
+                - cell "故事创作" [ref=e186]:
+                  - generic [ref=e187]: 故事创作
+                - cell "短片、角色场景、叙事片段" [ref=e188]:
+                  - generic [ref=e189]: 短片、角色场景、叙事片段
+              - row "营销视频 产品广告、活动视频、推广内容" [ref=e190]:
+                - cell "营销视频" [ref=e191]:
+                  - generic [ref=e192]: 营销视频
+                - cell "产品广告、活动视频、推广内容" [ref=e193]:
+                  - generic [ref=e194]: 产品广告、活动视频、推广内容
+              - row "社交媒体内容 Reels、Shorts、TikTok 风格视频" [ref=e195]:
+                - cell "社交媒体内容" [ref=e196]:
+                  - generic [ref=e197]: 社交媒体内容
+                - cell "Reels、Shorts、TikTok 风格视频" [ref=e198]:
+                  - generic [ref=e199]: Reels、Shorts、TikTok 风格视频
+              - row "图像动画化 动画化人像、产品、角色或场景" [ref=e200]:
+                - cell "图像动画化" [ref=e201]:
+                  - generic [ref=e202]: 图像动画化
+                - cell "动画化人像、产品、角色或场景" [ref=e203]:
+                  - generic [ref=e204]: 动画化人像、产品、角色或场景
+              - row "产品演示 根据文本或图像生成产品展示视频" [ref=e205]:
+                - cell "产品演示" [ref=e206]:
+                  - generic [ref=e207]: 产品演示
+                - cell "根据文本或图像生成产品展示视频" [ref=e208]:
+                  - generic [ref=e209]: 根据文本或图像生成产品展示视频
+              - row "关键帧过渡 在不同视觉状态之间生成平滑转场" [ref=e210]:
+                - cell "关键帧过渡" [ref=e211]:
+                  - generic [ref=e212]: 关键帧过渡
+                - cell "在不同视觉状态之间生成平滑转场" [ref=e213]:
+                  - generic [ref=e214]: 在不同视觉状态之间生成平滑转场
+              - row "游戏 / App 素材 为数字产品生成动态视觉素材" [ref=e215]:
+                - cell "游戏 / App 素材" [ref=e216]:
+                  - generic [ref=e217]: 游戏 / App 素材
+                - cell "为数字产品生成动态视觉素材" [ref=e218]:
+                  - generic [ref=e219]: 为数字产品生成动态视觉素材
+              - row "沉浸式内容 生成电影级 AI 场景和氛围视频" [ref=e220]:
+                - cell "沉浸式内容" [ref=e221]:
+                  - generic [ref=e222]: 沉浸式内容
+                - cell "生成电影级 AI 场景和氛围视频" [ref=e223]:
+                  - generic [ref=e224]: 生成电影级 AI 场景和氛围视频
+          - separator [ref=e225]
+          - heading "准备工作" [level=3] [ref=e226]:
+            - generic [ref=e227]:
+              - link "准备工作" [ref=e228] [cursor=pointer]:
+                - /url: "#3764a189eee580aaa70fdeacb6a33b03"
+                - img [ref=e229]
+              - text: 准备工作
+          - generic [ref=e231]: 开始接入前，请确保你已经具备以下条件：
+          - list [ref=e232]:
+            - listitem [ref=e233]: 已获得有效的 Agnes AI API Key。
+          - list [ref=e234]:
+            - listitem [ref=e235]: 当前网络环境可以访问 Agnes AI API Gateway。
+          - list [ref=e236]:
+            - listitem [ref=e237]:
+              - text: 已确认模型名称：
+              - code [ref=e238]: agnes-video-v2.0
+              - text: 。
+          - list [ref=e239]:
+            - listitem [ref=e240]: 已准备好视频生成所需的文本提示词。
+          - list [ref=e241]:
+            - listitem [ref=e242]: 如需使用图生视频、多图视频或关键帧动画，请准备可公网访问的图片 URL。
+          - separator [ref=e243]
+          - heading "API Endpoints" [level=3] [ref=e244]:
+            - generic [ref=e245]:
+              - link "API Endpoints" [ref=e246] [cursor=pointer]:
+                - /url: "#3764a189eee580c0bbf6f52d8aee7786"
+                - img [ref=e247]
+              - text: API Endpoints
+          - heading "创建视频任务" [level=4] [ref=e249]:
+            - generic [ref=e250]:
+              - link "创建视频任务" [ref=e251] [cursor=pointer]:
+                - /url: "#3764a189eee5802ea101cb2b4edd0ece"
+                - img [ref=e252]
+              - text: 创建视频任务
+          - table [ref=e254]:
+            - rowgroup [ref=e255]:
+              - row "项目 说明" [ref=e256]:
+                - cell "项目" [ref=e257]:
+                  - generic [ref=e258]: 项目
+                - cell "说明" [ref=e259]:
+                  - generic [ref=e260]: 说明
+              - row "Endpoint https://apihub.agnes-ai.com/v1/videos" [ref=e261]:
+                - cell "Endpoint" [ref=e262]:
+                  - generic [ref=e263]: Endpoint
+                - cell "https://apihub.agnes-ai.com/v1/videos" [ref=e264]:
+                  - code [ref=e266]: https://apihub.agnes-ai.com/v1/videos
+              - row "Method POST" [ref=e267]:
+                - cell "Method" [ref=e268]:
+                  - generic [ref=e269]: Method
+                - cell "POST" [ref=e270]:
+                  - code [ref=e272]: POST
+              - row "Content-Type application/json" [ref=e273]:
+                - cell "Content-Type" [ref=e274]:
+                  - generic [ref=e275]: Content-Type
+                - cell "application/json" [ref=e276]:
+                  - code [ref=e278]: application/json
+              - row "Authentication Bearer Token" [ref=e279]:
+                - cell "Authentication" [ref=e280]:
+                  - generic [ref=e281]: Authentication
+                - cell "Bearer Token" [ref=e282]:
+                  - generic [ref=e283]: Bearer Token
+              - 'row "Header Authorization: Bearer YOUR_API_KEY" [ref=e284]':
+                - cell "Header" [ref=e285]:
+                  - generic [ref=e286]: Header
+                - 'cell "Authorization: Bearer YOUR_API_KEY" [ref=e287]':
+                  - code [ref=e289]: "Authorization: Bearer YOUR_API_KEY"
+          - separator [ref=e290]
+          - heading "查询视频结果：推荐方式" [level=4] [ref=e291]:
+            - generic [ref=e292]:
+              - link "查询视频结果：推荐方式" [ref=e293] [cursor=pointer]:
+                - /url: "#3764a189eee580d0855dff5be579f79b"
+                - img [ref=e294]
+              - text: 查询视频结果：推荐方式
+          - generic [ref=e296]:
+            - text: 创建视频任务后，响应中会返回
+            - code [ref=e297]: video_id
+            - text: 。
+          - generic [ref=e298]:
+            - text: 推荐使用
+            - code [ref=e299]: video_id
+            - text: 查询视频结果。
+          - table [ref=e300]:
+            - rowgroup [ref=e301]:
+              - row "项目 说明" [ref=e302]:
+                - cell "项目" [ref=e303]:
+                  - generic [ref=e304]: 项目
+                - cell "说明" [ref=e305]:
+                  - generic [ref=e306]: 说明
+              - row "Endpoint https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>" [ref=e307]:
+                - cell "Endpoint" [ref=e308]:
+                  - generic [ref=e309]: Endpoint
+                - cell "https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>" [ref=e310]:
+                  - code [ref=e312]: https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>
+              - row "Method GET" [ref=e313]:
+                - cell "Method" [ref=e314]:
+                  - generic [ref=e315]: Method
+                - cell "GET" [ref=e316]:
+                  - code [ref=e318]: GET
+              - row "Authentication Bearer Token" [ref=e319]:
+                - cell "Authentication" [ref=e320]:
+                  - generic [ref=e321]: Authentication
+                - cell "Bearer Token" [ref=e322]:
+                  - generic [ref=e323]: Bearer Token
+              - 'row "Header Authorization: Bearer YOUR_API_KEY" [ref=e324]':
+                - cell "Header" [ref=e325]:
+                  - generic [ref=e326]: Header
+                - 'cell "Authorization: Bearer YOUR_API_KEY" [ref=e327]':
+                  - code [ref=e329]: "Authorization: Bearer YOUR_API_KEY"
+          - separator [ref=e330]
+          - heading "查询视频结果：兼容旧方式" [level=4] [ref=e331]:
+            - generic [ref=e332]:
+              - link "查询视频结果：兼容旧方式" [ref=e333] [cursor=pointer]:
+                - /url: "#3764a189eee5806a93c2d6a81ae795d5"
+                - img [ref=e334]
+              - text: 查询视频结果：兼容旧方式
+          - generic [ref=e336]: 旧版任务查询接口仍然支持，用于兼容已有接入逻辑。
+          - table [ref=e337]:
+            - rowgroup [ref=e338]:
+              - row "项目 说明" [ref=e339]:
+                - cell "项目" [ref=e340]:
+                  - generic [ref=e341]: 项目
+                - cell "说明" [ref=e342]:
+                  - generic [ref=e343]: 说明
+              - 'row "Endpoint https://apihub.agnes-ai.com/v1/videos/{task_id}" [ref=e344]':
+                - cell "Endpoint" [ref=e345]:
+                  - generic [ref=e346]: Endpoint
+                - 'cell "https://apihub.agnes-ai.com/v1/videos/{task_id}" [ref=e347]':
+                  - code [ref=e349]: "https://apihub.agnes-ai.com/v1/videos/{task_id}"
+              - row "Method GET" [ref=e350]:
+                - cell "Method" [ref=e351]:
+                  - generic [ref=e352]: Method
+                - cell "GET" [ref=e353]:
+                  - code [ref=e355]: GET
+              - row "Authentication Bearer Token" [ref=e356]:
+                - cell "Authentication" [ref=e357]:
+                  - generic [ref=e358]: Authentication
+                - cell "Bearer Token" [ref=e359]:
+                  - generic [ref=e360]: Bearer Token
+              - 'row "Header Authorization: Bearer YOUR_API_KEY" [ref=e361]':
+                - cell "Header" [ref=e362]:
+                  - generic [ref=e363]: Header
+                - 'cell "Authorization: Bearer YOUR_API_KEY" [ref=e364]':
+                  - code [ref=e366]: "Authorization: Bearer YOUR_API_KEY"
+          - separator [ref=e367]
+          - heading "请求参数" [level=3] [ref=e368]:
+            - generic [ref=e369]:
+              - link "请求参数" [ref=e370] [cursor=pointer]:
+                - /url: "#3764a189eee5804e9e4ecaaa74cb07ea"
+                - img [ref=e371]
+              - text: 请求参数
+          - heading "创建视频任务参数" [level=4] [ref=e373]:
+            - generic [ref=e374]:
+              - link "创建视频任务参数" [ref=e375] [cursor=pointer]:
+                - /url: "#3764a189eee5808899d4de9f3e805a3e"
+                - img [ref=e376]
+              - text: 创建视频任务参数
+          - table [ref=e378]:
+            - rowgroup [ref=e379]:
+              - row "参数 类型 是否必填 说明" [ref=e380]:
+                - cell "参数" [ref=e381]:
+                  - generic [ref=e382]: 参数
+                - cell "类型" [ref=e383]:
+                  - generic [ref=e384]: 类型
+                - cell "是否必填" [ref=e385]:
+                  - generic [ref=e386]: 是否必填
+                - cell "说明" [ref=e387]:
+                  - generic [ref=e388]: 说明
+              - row "model string 是 模型名称，使用 agnes-video-v2.0" [ref=e389]:
+                - cell "model" [ref=e390]:
+                  - code [ref=e392]: model
+                - cell "string" [ref=e393]:
+                  - generic [ref=e394]: string
+                - cell "是" [ref=e395]:
+                  - generic [ref=e396]: 是
+                - cell "模型名称，使用 agnes-video-v2.0" [ref=e397]:
+                  - generic [ref=e398]:
+                    - text: 模型名称，使用
+                    - code [ref=e399]: agnes-video-v2.0
+              - row "prompt string 是 视频内容的文本描述" [ref=e400]:
+                - cell "prompt" [ref=e401]:
+                  - code [ref=e403]: prompt
+                - cell "string" [ref=e404]:
+                  - generic [ref=e405]: string
+                - cell "是" [ref=e406]:
+                  - generic [ref=e407]: 是
+                - cell "视频内容的文本描述" [ref=e408]:
+                  - generic [ref=e409]: 视频内容的文本描述
+              - row "image string / array 否 图片 URL 或图片 URL 数组" [ref=e410]:
+                - cell "image" [ref=e411]:
+                  - code [ref=e413]: image
+                - cell "string / array" [ref=e414]:
+                  - generic [ref=e415]: string / array
+                - cell "否" [ref=e416]:
+                  - generic [ref=e417]: 否
+                - cell "图片 URL 或图片 URL 数组" [ref=e418]:
+                  - generic [ref=e419]: 图片 URL 或图片 URL 数组
+              - row "mode string 否 生成模式，例如 ti2vid 或 keyframes" [ref=e420]:
+                - cell "mode" [ref=e421]:
+                  - code [ref=e423]: mode
+                - cell "string" [ref=e424]:
+                  - generic [ref=e425]: string
+                - cell "否" [ref=e426]:
+                  - generic [ref=e427]: 否
+                - cell "生成模式，例如 ti2vid 或 keyframes" [ref=e428]:
+                  - generic [ref=e429]:
+                    - text: 生成模式，例如
+                    - code [ref=e430]: ti2vid
+                    - text: 或
+                    - code [ref=e431]: keyframes
+              - row "height integer 否 视频高度，默认值为 768" [ref=e432]:
+                - cell "height" [ref=e433]:
+                  - code [ref=e435]: height
+                - cell "integer" [ref=e436]:
+                  - generic [ref=e437]: integer
+                - cell "否" [ref=e438]:
+                  - generic [ref=e439]: 否
+                - cell "视频高度，默认值为 768" [ref=e440]:
+                  - generic [ref=e441]:
+                    - text: 视频高度，默认值为
+                    - code [ref=e442]: "768"
+              - row "width integer 否 视频宽度，默认值为 1152" [ref=e443]:
+                - cell "width" [ref=e444]:
+                  - code [ref=e446]: width
+                - cell "integer" [ref=e447]:
+                  - generic [ref=e448]: integer
+                - cell "否" [ref=e449]:
+                  - generic [ref=e450]: 否
+                - cell "视频宽度，默认值为 1152" [ref=e451]:
+                  - generic [ref=e452]:
+                    - text: 视频宽度，默认值为
+                    - code [ref=e453]: "1152"
+              - row "num_frames integer 否 视频帧数，必须 ≤ 441 ，且满足 8n + 1" [ref=e454]:
+                - cell "num_frames" [ref=e455]:
+                  - code [ref=e457]: num_frames
+                - cell "integer" [ref=e458]:
+                  - generic [ref=e459]: integer
+                - cell "否" [ref=e460]:
+                  - generic [ref=e461]: 否
+                - cell "视频帧数，必须 ≤ 441 ，且满足 8n + 1" [ref=e462]:
+                  - generic [ref=e463]:
+                    - text: 视频帧数，必须
+                    - code [ref=e464]: ≤ 441
+                    - text: ，且满足
+                    - code [ref=e465]: 8n + 1
+              - row "frame_rate number 否 视频 FPS，支持范围为 1–60" [ref=e466]:
+                - cell "frame_rate" [ref=e467]:
+                  - code [ref=e469]: frame_rate
+                - cell "number" [ref=e470]:
+                  - generic [ref=e471]: number
+                - cell "否" [ref=e472]:
+                  - generic [ref=e473]: 否
+                - cell "视频 FPS，支持范围为 1–60" [ref=e474]:
+                  - generic [ref=e475]:
+                    - text: 视频 FPS，支持范围为
+                    - code [ref=e476]: 1–60
+              - row "num_inference_steps integer 否 推理步数" [ref=e477]:
+                - cell "num_inference_steps" [ref=e478]:
+                  - code [ref=e480]: num_inference_steps
+                - cell "integer" [ref=e481]:
+                  - generic [ref=e482]: integer
+                - cell "否" [ref=e483]:
+                  - generic [ref=e484]: 否
+                - cell "推理步数" [ref=e485]:
+                  - generic [ref=e486]: 推理步数
+              - row "seed integer 否 随机种子，用于保证结果可复现" [ref=e487]:
+                - cell "seed" [ref=e488]:
+                  - code [ref=e490]: seed
+                - cell "integer" [ref=e491]:
+                  - generic [ref=e492]: integer
+                - cell "否" [ref=e493]:
+                  - generic [ref=e494]: 否
+                - cell "随机种子，用于保证结果可复现" [ref=e495]:
+                  - generic [ref=e496]: 随机种子，用于保证结果可复现
+              - row "negative_prompt string 否 负向提示词，用于描述需要避免的内容" [ref=e497]:
+                - cell "negative_prompt" [ref=e498]:
+                  - code [ref=e500]: negative_prompt
+                - cell "string" [ref=e501]:
+                  - generic [ref=e502]: string
+                - cell "否" [ref=e503]:
+                  - generic [ref=e504]: 否
+                - cell "负向提示词，用于描述需要避免的内容" [ref=e505]:
+                  - generic [ref=e506]: 负向提示词，用于描述需要避免的内容
+              - row "extra_body.image array 否 多图视频或关键帧模式中的输入图片 URL" [ref=e507]:
+                - cell "extra_body.image" [ref=e508]:
+                  - code [ref=e510]: extra_body.image
+                - cell "array" [ref=e511]:
+                  - generic [ref=e512]: array
+                - cell "否" [ref=e513]:
+                  - generic [ref=e514]: 否
+                - cell "多图视频或关键帧模式中的输入图片 URL" [ref=e515]:
+                  - generic [ref=e516]: 多图视频或关键帧模式中的输入图片 URL
+              - row "extra_body.mode string 否 额外模式设置，例如 keyframes" [ref=e517]:
+                - cell "extra_body.mode" [ref=e518]:
+                  - code [ref=e520]: extra_body.mode
+                - cell "string" [ref=e521]:
+                  - generic [ref=e522]: string
+                - cell "否" [ref=e523]:
+                  - generic [ref=e524]: 否
+                - cell "额外模式设置，例如 keyframes" [ref=e525]:
+                  - generic [ref=e526]:
+                    - text: 额外模式设置，例如
+                    - code [ref=e527]: keyframes
+          - separator [ref=e528]
+          - heading "创建视频任务" [level=3] [ref=e529]:
+            - generic [ref=e530]:
+              - link "创建视频任务" [ref=e531] [cursor=pointer]:
+                - /url: "#3764a189eee580c79739ee52c52dd50d"
+                - img [ref=e532]
+              - text: 创建视频任务
+          - heading "示例 1：文生视频" [level=4] [ref=e534]:
+            - generic [ref=e535]:
+              - link "示例 1：文生视频" [ref=e536] [cursor=pointer]:
+                - /url: "#3764a189eee580e7a159f9e88b0b2f50"
+                - img [ref=e537]
+              - text: 示例 1：文生视频
+          - generic [ref=e539]: 用于直接根据文本提示词生成视频。
+          - generic [ref=e540]:
+            - img [ref=e543] [cursor=pointer]
+            - code [ref=e546]: "curl -X POST https://apihub.agnes-ai.com/v1/videos \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-video-v2.0\", \"prompt\": \"A cinematic shot of a cat walking on the beach at sunset, soft ocean waves, warm golden lighting, realistic motion\", \"height\": 768, \"width\": 1152, \"num_frames\": 121, \"frame_rate\": 24 }'"
+          - separator [ref=e547]
+          - heading "示例 2：图生视频" [level=4] [ref=e548]:
+            - generic [ref=e549]:
+              - link "示例 2：图生视频" [ref=e550] [cursor=pointer]:
+                - /url: "#3764a189eee5800296b7e3b3102176de"
+                - img [ref=e551]
+              - text: 示例 2：图生视频
+          - generic [ref=e553]: 用于将单张图片动画化。
+          - generic [ref=e554]:
+            - img [ref=e557] [cursor=pointer]
+            - code [ref=e560]: "curl -X POST https://apihub.agnes-ai.com/v1/videos \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-video-v2.0\", \"prompt\": \"The woman slowly turns around and looks back at the camera, natural facial expression, cinematic camera movement\", \"image\": \"https://example.com/image.png\", \"num_frames\": 121, \"frame_rate\": 24 }'"
+          - separator [ref=e561]
+          - heading "示例 3：多图视频生成" [level=4] [ref=e562]:
+            - generic [ref=e563]:
+              - link "示例 3：多图视频生成" [ref=e564] [cursor=pointer]:
+                - /url: "#3764a189eee580398cc1cc7900abf089"
+                - img [ref=e565]
+              - text: 示例 3：多图视频生成
+          - generic [ref=e567]: 用于通过多张输入图片指导视频生成。
+          - generic [ref=e568]:
+            - img [ref=e571] [cursor=pointer]
+            - code [ref=e574]: "curl -X POST https://apihub.agnes-ai.com/v1/videos \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-video-v2.0\", \"prompt\": \"Create a smooth transformation scene between the two reference images, cinematic lighting, consistent character identity, natural motion\", \"extra_body\": { \"image\": [ \"https://example.com/image1.png\", \"https://example.com/image2.png\" ] }, \"num_frames\": 121, \"frame_rate\": 24 }'"
+          - separator [ref=e575]
+          - heading "示例 4：关键帧动画" [level=4] [ref=e576]:
+            - generic [ref=e577]:
+              - link "示例 4：关键帧动画" [ref=e578] [cursor=pointer]:
+                - /url: "#3764a189eee580879f79d3af75d477c1"
+                - img [ref=e579]
+              - text: 示例 4：关键帧动画
+          - generic [ref=e581]: 用于在多个关键帧之间生成平滑动画。
+          - generic [ref=e582]:
+            - img [ref=e585] [cursor=pointer]
+            - code [ref=e588]: "curl -X POST https://apihub.agnes-ai.com/v1/videos \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-video-v2.0\", \"prompt\": \"Generate a smooth cinematic transition between the keyframes, maintaining visual consistency and natural camera movement\", \"extra_body\": { \"image\": [ \"https://example.com/keyframe1.png\", \"https://example.com/keyframe2.png\" ], \"mode\": \"keyframes\" }, \"num_frames\": 121, \"frame_rate\": 24 }'"
+          - separator [ref=e589]
+          - heading "创建任务响应" [level=3] [ref=e590]:
+            - generic [ref=e591]:
+              - link "创建任务响应" [ref=e592] [cursor=pointer]:
+                - /url: "#3764a189eee58020af54d0f851d05a61"
+                - img [ref=e593]
+              - text: 创建任务响应
+          - generic [ref=e595]: 视频任务创建成功后，API 会返回任务信息。
+          - generic [ref=e596]:
+            - text: 响应中会同时包含
+            - code [ref=e597]: task_id
+            - text: 和
+            - code [ref=e598]: video_id
+            - text: 。
+          - generic [ref=e599]:
+            - text: 其中，
+            - code [ref=e600]: video_id
+            - text: 是推荐用于查询视频结果的 ID。
+          - generic [ref=e601]:
+            - img [ref=e604] [cursor=pointer]
+            - code [ref=e607]: "{ \"id\": \"task_YOUR_TASK_ID\", \"task_id\": \"task_YOUR_TASK_ID\", \"video_id\": \"video_YOUR_VIDEO_ID\", \"object\": \"video\", \"model\": \"agnes-video-v2.0\", \"status\": \"queued\", \"progress\": 0, \"created_at\": 1780457477, \"seconds\": \"10.0\", \"size\": \"1280x768\" }"
+          - heading "响应字段说明" [level=4] [ref=e608]:
+            - generic [ref=e609]:
+              - link "响应字段说明" [ref=e610] [cursor=pointer]:
+                - /url: "#3764a189eee5805babe9df55bfadb3b5"
+                - img [ref=e611]
+              - text: 响应字段说明
+          - table [ref=e613]:
+            - rowgroup [ref=e614]:
+              - row "字段 类型 说明" [ref=e615]:
+                - cell "字段" [ref=e616]:
+                  - generic [ref=e617]: 字段
+                - cell "类型" [ref=e618]:
+                  - generic [ref=e619]: 类型
+                - cell "说明" [ref=e620]:
+                  - generic [ref=e621]: 说明
+              - row "id string 任务 ID，可用于旧版查询接口" [ref=e622]:
+                - cell "id" [ref=e623]:
+                  - code [ref=e625]: id
+                - cell "string" [ref=e626]:
+                  - generic [ref=e627]: string
+                - cell "任务 ID，可用于旧版查询接口" [ref=e628]:
+                  - generic [ref=e629]: 任务 ID，可用于旧版查询接口
+              - row "task_id string 任务 ID，作用与 id 相同" [ref=e630]:
+                - cell "task_id" [ref=e631]:
+                  - code [ref=e633]: task_id
+                - cell "string" [ref=e634]:
+                  - generic [ref=e635]: string
+                - cell "任务 ID，作用与 id 相同" [ref=e636]:
+                  - generic [ref=e637]:
+                    - text: 任务 ID，作用与
+                    - code [ref=e638]: id
+                    - text: 相同
+              - row "video_id string 视频 ID，推荐用于查询视频结果" [ref=e639]:
+                - cell "video_id" [ref=e640]:
+                  - code [ref=e642]: video_id
+                - cell "string" [ref=e643]:
+                  - generic [ref=e644]: string
+                - cell "视频 ID，推荐用于查询视频结果" [ref=e645]:
+                  - generic [ref=e646]: 视频 ID，推荐用于查询视频结果
+              - row "object string 对象类型，通常为 video" [ref=e647]:
+                - cell "object" [ref=e648]:
+                  - code [ref=e650]: object
+                - cell "string" [ref=e651]:
+                  - generic [ref=e652]: string
+                - cell "对象类型，通常为 video" [ref=e653]:
+                  - generic [ref=e654]:
+                    - text: 对象类型，通常为
+                    - code [ref=e655]: video
+              - row "model string 当前任务使用的模型" [ref=e656]:
+                - cell "model" [ref=e657]:
+                  - code [ref=e659]: model
+                - cell "string" [ref=e660]:
+                  - generic [ref=e661]: string
+                - cell "当前任务使用的模型" [ref=e662]:
+                  - generic [ref=e663]: 当前任务使用的模型
+              - row "status string 当前任务状态" [ref=e664]:
+                - cell "status" [ref=e665]:
+                  - code [ref=e667]: status
+                - cell "string" [ref=e668]:
+                  - generic [ref=e669]: string
+                - cell "当前任务状态" [ref=e670]:
+                  - generic [ref=e671]: 当前任务状态
+              - row "progress integer 当前任务进度百分比" [ref=e672]:
+                - cell "progress" [ref=e673]:
+                  - code [ref=e675]: progress
+                - cell "integer" [ref=e676]:
+                  - generic [ref=e677]: integer
+                - cell "当前任务进度百分比" [ref=e678]:
+                  - generic [ref=e679]: 当前任务进度百分比
+              - row "created_at integer 任务创建时间戳" [ref=e680]:
+                - cell "created_at" [ref=e681]:
+                  - code [ref=e683]: created_at
+                - cell "integer" [ref=e684]:
+                  - generic [ref=e685]: integer
+                - cell "任务创建时间戳" [ref=e686]:
+                  - generic [ref=e687]: 任务创建时间戳
+              - row "seconds string 视频时长，单位为秒" [ref=e688]:
+                - cell "seconds" [ref=e689]:
+                  - code [ref=e691]: seconds
+                - cell "string" [ref=e692]:
+                  - generic [ref=e693]: string
+                - cell "视频时长，单位为秒" [ref=e694]:
+                  - generic [ref=e695]: 视频时长，单位为秒
+              - row "size string 视频分辨率" [ref=e696]:
+                - cell "size" [ref=e697]:
+                  - code [ref=e699]: size
+                - cell "string" [ref=e700]:
+                  - generic [ref=e701]: string
+                - cell "视频分辨率" [ref=e702]:
+                  - generic [ref=e703]: 视频分辨率
+          - separator [ref=e704]
+          - heading "查询视频结果" [level=3] [ref=e705]:
+            - generic [ref=e706]:
+              - link "查询视频结果" [ref=e707] [cursor=pointer]:
+                - /url: "#3764a189eee58050ba1aeebd147ec631"
+                - img [ref=e708]
+              - text: 查询视频结果
+          - heading "推荐方式：使用 video_id 查询" [level=4] [ref=e710]:
+            - generic [ref=e711]:
+              - link "推荐方式：使用 video_id 查询" [ref=e712] [cursor=pointer]:
+                - /url: "#3764a189eee5801b85efcf289ceb84b9"
+                - img [ref=e713]
+              - generic [ref=e715]:
+                - text: 推荐方式：使用
+                - code [ref=e716]: video_id
+                - text: 查询
+          - generic [ref=e717]:
+            - text: 创建视频任务后，使用返回的
+            - code [ref=e718]: video_id
+            - text: 查询视频结果。建议轮询间隔5s。
+          - generic [ref=e719]:
+            - img [ref=e722] [cursor=pointer]
+            - code [ref=e725]: "curl --location --request GET 'https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - generic [ref=e726]: 示例：
+          - generic [ref=e727]:
+            - img [ref=e730] [cursor=pointer]
+            - code [ref=e733]: "curl --location --request GET 'https://apihub.agnes-ai.com/agnesapi?video_id=video_xxxxxx' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - separator [ref=e734]
+          - heading "可选参数： model_name" [level=4] [ref=e735]:
+            - generic [ref=e736]:
+              - link "可选参数：model_name" [ref=e737] [cursor=pointer]:
+                - /url: "#3764a189eee58001b80ffdbb8cbd5a30"
+                - img [ref=e738]
+              - generic [ref=e740]:
+                - text: 可选参数：
+                - code [ref=e741]: model_name
+          - generic [ref=e742]:
+            - text: 查询视频结果时，也可以传入
+            - code [ref=e743]: model_name
+            - text: 显式指定模型名。
+          - generic [ref=e744]:
+            - img [ref=e747] [cursor=pointer]
+            - code [ref=e750]: "curl --location --request GET 'https://apihub.agnes-ai.com/agnesapi?video_id=<VIDEO_ID>&model_name=<MODEL>' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - generic [ref=e751]: 示例：
+          - generic [ref=e752]:
+            - img [ref=e755] [cursor=pointer]
+            - code [ref=e758]: "curl --location --request GET 'https://apihub.agnes-ai.com/agnesapi?video_id=video_xxxxxx&model_name=agnes-video-v2.0' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - separator [ref=e760]
+          - heading "兼容方式：使用 task_id 查询" [level=4] [ref=e761]:
+            - generic [ref=e762]:
+              - link "兼容方式：使用 task_id 查询" [ref=e763] [cursor=pointer]:
+                - /url: "#3764a189eee580d08946de112353db5b"
+                - img [ref=e764]
+              - generic [ref=e766]:
+                - text: 兼容方式：使用
+                - code [ref=e767]: task_id
+                - text: 查询
+          - generic [ref=e768]:
+            - text: 为了兼容旧版本，仍然可以使用
+            - code [ref=e769]: task_id
+            - text: 查询视频结果。
+          - generic [ref=e770]:
+            - img [ref=e773] [cursor=pointer]
+            - code [ref=e776]: "curl --location --request GET 'https://apihub.agnes-ai.com/v1/videos/<TASK_ID>' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - generic [ref=e777]: 示例：
+          - generic [ref=e778]:
+            - img [ref=e781] [cursor=pointer]
+            - code [ref=e784]: "curl --location --request GET 'https://apihub.agnes-ai.com/v1/videos/task_xxxxxx' \\ --header 'Authorization: Bearer <API_KEY>'"
+          - generic [ref=e785]:
+            - text: 该方式仍然支持，但新的接入建议使用
+            - code [ref=e786]: video_id
+            - text: 查询方式。
+          - separator [ref=e787]
+          - heading "查询结果响应" [level=3] [ref=e788]:
+            - generic [ref=e789]:
+              - link "查询结果响应" [ref=e790] [cursor=pointer]:
+                - /url: "#3764a189eee58084b64ef8f39cad2b36"
+                - img [ref=e791]
+              - text: 查询结果响应
+          - generic [ref=e793]: 当任务完成后，API 会返回最终视频结果。
+          - generic [ref=e794]:
+            - img [ref=e797] [cursor=pointer]
+            - code [ref=e800]: "{ \"id\": \"task_YOUR_TASK_ID\", \"video_id\": \"video_YOUR_VIDEO_ID\", \"model\": \"agnes-video-v2.0\", \"object\": \"video\", \"status\": \"completed\", \"progress\": 100, \"seconds\": \"10.0\", \"size\": \"1280x768\", \"remixed_from_video_id\": \"https://storage.googleapis.com/agnes-aigc/aigc/videos/2026/06/03/video_xxxxxx.mp4\", \"error\": null }"
+          - heading "结果字段说明" [level=4] [ref=e801]:
+            - generic [ref=e802]:
+              - link "结果字段说明" [ref=e803] [cursor=pointer]:
+                - /url: "#3764a189eee5800483dbcc390a38cd3b"
+                - img [ref=e804]
+              - text: 结果字段说明
+          - table [ref=e806]:
+            - rowgroup [ref=e807]:
+              - row "字段 类型 说明" [ref=e808]:
+                - cell "字段" [ref=e809]:
+                  - generic [ref=e810]: 字段
+                - cell "类型" [ref=e811]:
+                  - generic [ref=e812]: 类型
+                - cell "说明" [ref=e813]:
+                  - generic [ref=e814]: 说明
+              - row "id string 任务 ID" [ref=e815]:
+                - cell "id" [ref=e816]:
+                  - code [ref=e818]: id
+                - cell "string" [ref=e819]:
+                  - generic [ref=e820]: string
+                - cell "任务 ID" [ref=e821]:
+                  - generic [ref=e822]: 任务 ID
+              - row "video_id string 视频 ID" [ref=e823]:
+                - cell "video_id" [ref=e824]:
+                  - code [ref=e826]: video_id
+                - cell "string" [ref=e827]:
+                  - generic [ref=e828]: string
+                - cell "视频 ID" [ref=e829]:
+                  - generic [ref=e830]: 视频 ID
+              - row "model string 当前任务使用的模型" [ref=e831]:
+                - cell "model" [ref=e832]:
+                  - code [ref=e834]: model
+                - cell "string" [ref=e835]:
+                  - generic [ref=e836]: string
+                - cell "当前任务使用的模型" [ref=e837]:
+                  - generic [ref=e838]: 当前任务使用的模型
+              - row "object string 对象类型" [ref=e839]:
+                - cell "object" [ref=e840]:
+                  - code [ref=e842]: object
+                - cell "string" [ref=e843]:
+                  - generic [ref=e844]: string
+                - cell "对象类型" [ref=e845]:
+                  - generic [ref=e846]: 对象类型
+              - row "status string 任务状态" [ref=e847]:
+                - cell "status" [ref=e848]:
+                  - code [ref=e850]: status
+                - cell "string" [ref=e851]:
+                  - generic [ref=e852]: string
+                - cell "任务状态" [ref=e853]:
+                  - generic [ref=e854]: 任务状态
+              - row "progress integer 任务进度百分比" [ref=e855]:
+                - cell "progress" [ref=e856]:
+                  - code [ref=e858]: progress
+                - cell "integer" [ref=e859]:
+                  - generic [ref=e860]: integer
+                - cell "任务进度百分比" [ref=e861]:
+                  - generic [ref=e862]: 任务进度百分比
+              - row "seconds string 视频时长，单位为秒" [ref=e863]:
+                - cell "seconds" [ref=e864]:
+                  - code [ref=e866]: seconds
+                - cell "string" [ref=e867]:
+                  - generic [ref=e868]: string
+                - cell "视频时长，单位为秒" [ref=e869]:
+                  - generic [ref=e870]: 视频时长，单位为秒
+              - row "size string 视频分辨率" [ref=e871]:
+                - cell "size" [ref=e872]:
+                  - code [ref=e874]: size
+                - cell "string" [ref=e875]:
+                  - generic [ref=e876]: string
+                - cell "视频分辨率" [ref=e877]:
+                  - generic [ref=e878]: 视频分辨率
+              - row "remixed_from_video_id string 本字段为最终生成的视频 URL，仅在 status 为 completed 时可用" [ref=e879]:
+                - cell "remixed_from_video_id" [ref=e880]:
+                  - code [ref=e882]: remixed_from_video_id
+                - cell "string" [ref=e883]:
+                  - generic [ref=e884]: string
+                - cell "本字段为最终生成的视频 URL，仅在 status 为 completed 时可用" [ref=e885]:
+                  - generic [ref=e886]:
+                    - text: 本字段为最终生成的视频 URL，仅在
+                    - code [ref=e887]: status
+                    - text: 为
+                    - code [ref=e888]: completed
+                    - text: 时可用
+              - row "error object / null 错误信息，任务失败时返回" [ref=e889]:
+                - cell "error" [ref=e890]:
+                  - code [ref=e892]: error
+                - cell "object / null" [ref=e893]:
+                  - generic [ref=e894]: object / null
+                - cell "错误信息，任务失败时返回" [ref=e895]:
+                  - generic [ref=e896]: 错误信息，任务失败时返回
+          - separator [ref=e897]
+          - heading "任务状态说明" [level=3] [ref=e898]:
+            - generic [ref=e899]:
+              - link "任务状态说明" [ref=e900] [cursor=pointer]:
+                - /url: "#3764a189eee58037ae85d43ab79e7e7b"
+                - img [ref=e901]
+              - text: 任务状态说明
+          - table [ref=e903]:
+            - rowgroup [ref=e904]:
+              - row "状态 说明" [ref=e905]:
+                - cell "状态" [ref=e906]:
+                  - generic [ref=e907]: 状态
+                - cell "说明" [ref=e908]:
+                  - generic [ref=e909]: 说明
+              - row "queued 任务正在队列中等待" [ref=e910]:
+                - cell "queued" [ref=e911]:
+                  - code [ref=e913]: queued
+                - cell "任务正在队列中等待" [ref=e914]:
+                  - generic [ref=e915]: 任务正在队列中等待
+              - row "in_progress 视频正在生成中" [ref=e916]:
+                - cell "in_progress" [ref=e917]:
+                  - code [ref=e919]: in_progress
+                - cell "视频正在生成中" [ref=e920]:
+                  - generic [ref=e921]: 视频正在生成中
+              - row "completed 视频已生成完成" [ref=e922]:
+                - cell "completed" [ref=e923]:
+                  - code [ref=e925]: completed
+                - cell "视频已生成完成" [ref=e926]:
+                  - generic [ref=e927]: 视频已生成完成
+              - row "failed 视频生成失败" [ref=e928]:
+                - cell "failed" [ref=e929]:
+                  - code [ref=e931]: failed
+                - cell "视频生成失败" [ref=e932]:
+                  - generic [ref=e933]: 视频生成失败
+          - separator [ref=e934]
+          - heading "视频时长控制" [level=3] [ref=e935]:
+            - generic [ref=e936]:
+              - link "视频时长控制" [ref=e937] [cursor=pointer]:
+                - /url: "#3764a189eee580aba6e3c158f4d6ab85"
+                - img [ref=e938]
+              - text: 视频时长控制
+          - generic [ref=e940]:
+            - text: Agnes-Video-V2.0 支持通过
+            - code [ref=e941]: num_frames
+            - text: 和
+            - code [ref=e942]: frame_rate
+            - text: 控制视频时长。
+          - generic [ref=e943]: 计算公式：
+          - generic [ref=e944]:
+            - img [ref=e947] [cursor=pointer]
+            - code [ref=e950]: seconds = num_frames / frame_rate
+          - generic [ref=e951]: 其中：
+          - list [ref=e952]:
+            - listitem [ref=e953]:
+              - code [ref=e954]: num_frames
+              - text: 表示生成的视频总帧数；
+          - list [ref=e955]:
+            - listitem [ref=e956]:
+              - code [ref=e957]: frame_rate
+              - text: 表示视频帧率，即每秒播放多少帧；
+          - list [ref=e958]:
+            - listitem [ref=e959]:
+              - code [ref=e960]: num_frames
+              - text: 必须小于或等于
+              - code [ref=e961]: "441"
+              - text: ；
+          - list [ref=e962]:
+            - listitem [ref=e963]:
+              - code [ref=e964]: num_frames
+              - text: 必须满足
+              - code [ref=e965]: 8n + 1
+              - text: ；
+          - list [ref=e966]:
+            - listitem [ref=e967]:
+              - code [ref=e968]: frame_rate
+              - text: 支持范围为
+              - code [ref=e969]: 1–60
+              - text: 。
+          - heading "常用时长参数" [level=4] [ref=e970]:
+            - generic [ref=e971]:
+              - link "常用时长参数" [ref=e972] [cursor=pointer]:
+                - /url: "#3764a189eee58035981bd754d1d8d687"
+                - img [ref=e973]
+              - text: 常用时长参数
+          - table [ref=e975]:
+            - rowgroup [ref=e976]:
+              - row "目标时长 推荐参数" [ref=e977]:
+                - cell "目标时长" [ref=e978]:
+                  - generic [ref=e979]: 目标时长
+                - cell "推荐参数" [ref=e980]:
+                  - generic [ref=e981]: 推荐参数
+              - 'row "约 3 秒 num_frames: 81 , frame_rate: 24" [ref=e982]':
+                - cell "约 3 秒" [ref=e983]:
+                  - generic [ref=e984]: 约 3 秒
+                - 'cell "num_frames: 81 , frame_rate: 24" [ref=e985]':
+                  - generic [ref=e986]:
+                    - code [ref=e987]: "num_frames: 81"
+                    - text: ","
+                    - code [ref=e988]: "frame_rate: 24"
+              - 'row "约 5 秒 num_frames: 121 , frame_rate: 24" [ref=e989]':
+                - cell "约 5 秒" [ref=e990]:
+                  - generic [ref=e991]: 约 5 秒
+                - 'cell "num_frames: 121 , frame_rate: 24" [ref=e992]':
+                  - generic [ref=e993]:
+                    - code [ref=e994]: "num_frames: 121"
+                    - text: ","
+                    - code [ref=e995]: "frame_rate: 24"
+              - 'row "约 10 秒 num_frames: 241 , frame_rate: 24" [ref=e996]':
+                - cell "约 10 秒" [ref=e997]:
+                  - generic [ref=e998]: 约 10 秒
+                - 'cell "num_frames: 241 , frame_rate: 24" [ref=e999]':
+                  - generic [ref=e1000]:
+                    - code [ref=e1001]: "num_frames: 241"
+                    - text: ","
+                    - code [ref=e1002]: "frame_rate: 24"
+              - 'row "约 18 秒 num_frames: 441 , frame_rate: 24" [ref=e1003]':
+                - cell "约 18 秒" [ref=e1004]:
+                  - generic [ref=e1005]: 约 18 秒
+                - 'cell "num_frames: 441 , frame_rate: 24" [ref=e1006]':
+                  - generic [ref=e1007]:
+                    - code [ref=e1008]: "num_frames: 441"
+                    - text: ","
+                    - code [ref=e1009]: "frame_rate: 24"
+          - generic [ref=e1010]:
+            - text: 如果希望生成更长的视频，可以增加
+            - code [ref=e1011]: num_frames
+            - text: 或降低
+            - code [ref=e1012]: frame_rate
+            - text: 。
+          - generic [ref=e1013]:
+            - text: 如果希望画面更流畅，可以使用更高的
+            - code [ref=e1014]: frame_rate
+            - text: ，例如
+            - code [ref=e1015]: "24"
+            - text: 或
+            - code [ref=e1016]: "30"
+            - text: 。但在相同
+            - code [ref=e1017]: num_frames
+            - text: 下，
+            - code [ref=e1018]: frame_rate
+            - text: 越高，视频时长越短。
+          - separator [ref=e1019]
+          - heading "推荐参数" [level=3] [ref=e1020]:
+            - generic [ref=e1021]:
+              - link "推荐参数" [ref=e1022] [cursor=pointer]:
+                - /url: "#3764a189eee580bdac8be2793104a6b4"
+                - img [ref=e1023]
+              - text: 推荐参数
+          - table [ref=e1025]:
+            - rowgroup [ref=e1026]:
+              - row "使用场景 推荐设置" [ref=e1027]:
+                - cell "使用场景" [ref=e1028]:
+                  - generic [ref=e1029]: 使用场景
+                - cell "推荐设置" [ref=e1030]:
+                  - generic [ref=e1031]: 推荐设置
+              - 'row "标准视频生成 width: 1152 , height: 768 , num_frames: 121 , frame_rate: 24" [ref=e1032]':
+                - cell "标准视频生成" [ref=e1033]:
+                  - generic [ref=e1034]: 标准视频生成
+                - 'cell "width: 1152 , height: 768 , num_frames: 121 , frame_rate: 24" [ref=e1035]':
+                  - generic [ref=e1036]:
+                    - code [ref=e1037]: "width: 1152"
+                    - text: ","
+                    - code [ref=e1038]: "height: 768"
+                    - text: ","
+                    - code [ref=e1039]: "num_frames: 121"
+                    - text: ","
+                    - code [ref=e1040]: "frame_rate: 24"
+              - 'row "短视频社交内容 num_frames: 81 或 121 , frame_rate: 24" [ref=e1041]':
+                - cell "短视频社交内容" [ref=e1042]:
+                  - generic [ref=e1043]: 短视频社交内容
+                - 'cell "num_frames: 81 或 121 , frame_rate: 24" [ref=e1044]':
+                  - generic [ref=e1045]:
+                    - code [ref=e1046]: "num_frames: 81"
+                    - text: 或
+                    - code [ref=e1047]: "121"
+                    - text: ","
+                    - code [ref=e1048]: "frame_rate: 24"
+              - row "更长视频 增加 num_frames 或降低 frame_rate" [ref=e1049]:
+                - cell "更长视频" [ref=e1050]:
+                  - generic [ref=e1051]: 更长视频
+                - cell "增加 num_frames 或降低 frame_rate" [ref=e1052]:
+                  - generic [ref=e1053]:
+                    - text: 增加
+                    - code [ref=e1054]: num_frames
+                    - text: 或降低
+                    - code [ref=e1055]: frame_rate
+              - 'row "更平滑运动 使用 frame_rate: 24 或 30" [ref=e1056]':
+                - cell "更平滑运动" [ref=e1057]:
+                  - generic [ref=e1058]: 更平滑运动
+                - 'cell "使用 frame_rate: 24 或 30" [ref=e1059]':
+                  - generic [ref=e1060]:
+                    - text: 使用
+                    - code [ref=e1061]: "frame_rate: 24"
+                    - text: 或
+                    - code [ref=e1062]: "30"
+              - row "可复现结果 设置固定 seed" [ref=e1063]:
+                - cell "可复现结果" [ref=e1064]:
+                  - generic [ref=e1065]: 可复现结果
+                - cell "设置固定 seed" [ref=e1066]:
+                  - generic [ref=e1067]:
+                    - text: 设置固定
+                    - code [ref=e1068]: seed
+              - 'row "关键帧过渡 使用 extra_body.mode: \"keyframes\"" [ref=e1069]':
+                - cell "关键帧过渡" [ref=e1070]:
+                  - generic [ref=e1071]: 关键帧过渡
+                - 'cell "使用 extra_body.mode: \"keyframes\"" [ref=e1072]':
+                  - generic [ref=e1073]:
+                    - text: 使用
+                    - code [ref=e1074]: "extra_body.mode: \"keyframes\""
+              - row "避免不需要的内容 使用 negative_prompt" [ref=e1075]:
+                - cell "避免不需要的内容" [ref=e1076]:
+                  - generic [ref=e1077]: 避免不需要的内容
+                - cell "使用 negative_prompt" [ref=e1078]:
+                  - generic [ref=e1079]:
+                    - text: 使用
+                    - code [ref=e1080]: negative_prompt
+          - separator [ref=e1081]
+          - heading "Prompt 最佳实践" [level=3] [ref=e1082]:
+            - generic [ref=e1083]:
+              - link "Prompt 最佳实践" [ref=e1084] [cursor=pointer]:
+                - /url: "#3764a189eee580d9926ede49c515408c"
+                - img [ref=e1085]
+              - text: Prompt 最佳实践
+          - heading "文生视频 Prompt" [level=4] [ref=e1087]:
+            - generic [ref=e1088]:
+              - link "文生视频 Prompt" [ref=e1089] [cursor=pointer]:
+                - /url: "#3764a189eee5803fb212c64972c011df"
+                - img [ref=e1090]
+              - text: 文生视频 Prompt
+          - generic [ref=e1092]: 文生视频任务建议描述主体、动作、环境、镜头运动、光照和视觉风格。
+          - generic [ref=e1093]: 推荐结构：
+          - generic [ref=e1094]:
+            - img [ref=e1097] [cursor=pointer]
+            - code [ref=e1100]: "[主体] + [动作] + [场景] + [镜头运动] + [光照] + [风格]"
+          - generic [ref=e1101]: 示例：
+          - generic [ref=e1102]:
+            - img [ref=e1105] [cursor=pointer]
+            - code [ref=e1108]: A young astronaut walking across a red desert planet, dust blowing in the wind, slow cinematic tracking shot, dramatic sunset lighting, realistic sci-fi style
+          - separator [ref=e1109]
+          - heading "图生视频 Prompt" [level=4] [ref=e1110]:
+            - generic [ref=e1111]:
+              - link "图生视频 Prompt" [ref=e1112] [cursor=pointer]:
+                - /url: "#3764a189eee58053b0f2e153970a2a39"
+                - img [ref=e1113]
+              - text: 图生视频 Prompt
+          - generic [ref=e1115]: 图生视频任务建议描述哪些内容需要运动，同时说明哪些主体元素需要保持稳定。
+          - generic [ref=e1116]: 示例：
+          - generic [ref=e1117]:
+            - img [ref=e1120] [cursor=pointer]
+            - code [ref=e1123]: Animate the character with subtle breathing motion, hair moving gently in the wind, background lights flickering softly, while keeping the face and outfit consistent
+          - separator [ref=e1124]
+          - heading "多图视频 Prompt" [level=4] [ref=e1125]:
+            - generic [ref=e1126]:
+              - link "多图视频 Prompt" [ref=e1127] [cursor=pointer]:
+                - /url: "#3764a189eee5805aa95add1e8955749f"
+                - img [ref=e1128]
+              - text: 多图视频 Prompt
+          - generic [ref=e1130]: 多图视频任务建议描述输入图片之间的关系，以及画面如何过渡。
+          - generic [ref=e1131]: 示例：
+          - generic [ref=e1132]:
+            - img [ref=e1135] [cursor=pointer]
+            - code [ref=e1138]: Use the first image as the starting scene and the second image as the target scene. Create a smooth transformation with consistent lighting, natural motion, and cinematic pacing
+          - separator [ref=e1139]
+          - heading "关键帧动画 Prompt" [level=4] [ref=e1140]:
+            - generic [ref=e1141]:
+              - link "关键帧动画 Prompt" [ref=e1142] [cursor=pointer]:
+                - /url: "#3764a189eee58056bc28da2296664b97"
+                - img [ref=e1143]
+              - text: 关键帧动画 Prompt
+          - generic [ref=e1145]: 关键帧动画任务建议清晰描述关键帧之间的过渡关系。
+          - generic [ref=e1146]: 示例：
+          - generic [ref=e1147]:
+            - img [ref=e1150] [cursor=pointer]
+            - code [ref=e1153]: Create a smooth transition from the first keyframe to the second keyframe, maintaining character identity, consistent camera angle, and natural motion between scenes
+          - separator [ref=e1154]
+          - heading "错误码" [level=3] [ref=e1155]:
+            - generic [ref=e1156]:
+              - link "错误码" [ref=e1157] [cursor=pointer]:
+                - /url: "#3764a189eee580b58c7ec63a43369482"
+                - img [ref=e1158]
+              - text: 错误码
+          - table [ref=e1160]:
+            - rowgroup [ref=e1161]:
+              - row "状态码 说明" [ref=e1162]:
+                - cell "状态码" [ref=e1163]:
+                  - generic [ref=e1164]: 状态码
+                - cell "说明" [ref=e1165]:
+                  - generic [ref=e1166]: 说明
+              - row "400 请求无效，请检查请求参数" [ref=e1167]:
+                - cell "400" [ref=e1168]:
+                  - code [ref=e1170]: "400"
+                - cell "请求无效，请检查请求参数" [ref=e1171]:
+                  - generic [ref=e1172]: 请求无效，请检查请求参数
+              - row "401 未授权，请检查 API Key" [ref=e1173]:
+                - cell "401" [ref=e1174]:
+                  - code [ref=e1176]: "401"
+                - cell "未授权，请检查 API Key" [ref=e1177]:
+                  - generic [ref=e1178]: 未授权，请检查 API Key
+              - row "404 任务或视频不存在" [ref=e1179]:
+                - cell "404" [ref=e1180]:
+                  - code [ref=e1182]: "404"
+                - cell "任务或视频不存在" [ref=e1183]:
+                  - generic [ref=e1184]: 任务或视频不存在
+              - row "500 服务器错误" [ref=e1185]:
+                - cell "500" [ref=e1186]:
+                  - code [ref=e1188]: "500"
+                - cell "服务器错误" [ref=e1189]:
+                  - generic [ref=e1190]: 服务器错误
+              - row "503 服务繁忙，请稍后重试" [ref=e1191]:
+                - cell "503" [ref=e1192]:
+                  - code [ref=e1194]: "503"
+                - cell "服务繁忙，请稍后重试" [ref=e1195]:
+                  - generic [ref=e1196]: 服务繁忙，请稍后重试
+          - separator [ref=e1197]
+          - heading "价格" [level=3] [ref=e1198]:
+            - generic [ref=e1199]:
+              - link "价格" [ref=e1200] [cursor=pointer]:
+                - /url: "#3764a189eee580c28663e620b35d9561"
+                - img [ref=e1201]
+              - text: 价格
+          - table [ref=e1203]:
+            - rowgroup [ref=e1204]:
+              - row "类型 标准价格 当前价格" [ref=e1205]:
+                - cell "类型" [ref=e1206]:
+                  - generic [ref=e1207]: 类型
+                - cell "标准价格" [ref=e1208]:
+                  - generic [ref=e1209]: 标准价格
+                - cell "当前价格" [ref=e1210]:
+                  - generic [ref=e1211]: 当前价格
+              - row "Video Duration $0.005 / second $0 / second" [ref=e1212]:
+                - cell "Video Duration" [ref=e1213]:
+                  - generic [ref=e1214]: Video Duration
+                - cell "$0.005 / second" [ref=e1215]:
+                  - code [ref=e1217]: $0.005 / second
+                - cell "$0 / second" [ref=e1218]:
+                  - code [ref=e1220]: $0 / second
+          - separator [ref=e1221]
+          - heading "注意事项" [level=3] [ref=e1222]:
+            - generic [ref=e1223]:
+              - link "注意事项" [ref=e1224] [cursor=pointer]:
+                - /url: "#3764a189eee5806dac8eccac0f432286"
+                - img [ref=e1225]
+              - text: 注意事项
+          - list [ref=e1227]:
+            - listitem [ref=e1228]:
+              - text: 使用
+              - code [ref=e1229]: agnes-video-v2.0
+              - text: 作为模型名称；
+          - list [ref=e1230]:
+            - listitem [ref=e1231]: 视频生成是异步任务；
+          - list [ref=e1232]:
+            - listitem [ref=e1233]: 需要先创建视频任务，再查询视频结果；
+          - list [ref=e1234]:
+            - listitem [ref=e1235]:
+              - text: 创建任务响应中会同时返回
+              - code [ref=e1236]: task_id
+              - text: 和
+              - code [ref=e1237]: video_id
+              - text: ；
+          - list [ref=e1238]:
+            - listitem [ref=e1239]:
+              - text: 新接入建议使用
+              - code [ref=e1240]: video_id
+              - text: 查询视频结果；
+          - list [ref=e1241]:
+            - listitem [ref=e1242]:
+              - text: 旧版
+              - code [ref=e1243]: task_id
+              - text: 查询接口仍然支持；
+          - list [ref=e1244]:
+            - listitem [ref=e1245]:
+              - code [ref=e1246]: video_url
+              - text: 仅在
+              - code [ref=e1247]: status
+              - text: 为
+              - code [ref=e1248]: completed
+              - text: 时可用；
+          - list [ref=e1249]:
+            - listitem [ref=e1250]:
+              - code [ref=e1251]: num_frames
+              - text: 必须小于或等于
+              - code [ref=e1252]: "441"
+              - text: ；
+          - list [ref=e1253]:
+            - listitem [ref=e1254]:
+              - code [ref=e1255]: num_frames
+              - text: 必须满足
+              - code [ref=e1256]: 8n + 1
+              - text: ，例如
+              - code [ref=e1257]: "81"
+              - text: 、
+              - code [ref=e1258]: "121"
+              - text: 、
+              - code [ref=e1259]: "161"
+              - text: 、
+              - code [ref=e1260]: "241"
+              - text: 或
+              - code [ref=e1261]: "441"
+              - text: ；
+          - list [ref=e1262]:
+            - listitem [ref=e1263]:
+              - text: 文生视频任务仅要求传入
+              - code [ref=e1264]: model
+              - text: 和
+              - code [ref=e1265]: prompt
+              - text: ；
+          - list [ref=e1266]:
+            - listitem [ref=e1267]:
+              - text: 图生视频任务需要通过
+              - code [ref=e1268]: image
+              - text: 提供图片 URL；
+          - list [ref=e1269]:
+            - listitem [ref=e1270]:
+              - text: 多图视频任务需要在
+              - code [ref=e1271]: extra_body.image
+              - text: 中提供多个图片 URL；
+          - list [ref=e1272]:
+            - listitem [ref=e1273]:
+              - text: 关键帧动画需要设置
+              - code [ref=e1274]: extra_body.mode
+              - text: 为
+              - code [ref=e1275]: keyframes
+              - text: 。
+    - complementary [ref=e1276]:
+      - generic [ref=e1277]:
+        - generic [ref=e1278]: ≡ 本页目录
+        - link "Agnes-Video-V2.0 API 接入指南" [ref=e1279] [cursor=pointer]:
+          - /url: "#heading-agnes-video-v20-api-接入指南"
+        - link "概述" [ref=e1280] [cursor=pointer]:
+          - /url: "#heading-概述"
+        - link "支持能力" [ref=e1281] [cursor=pointer]:
+          - /url: "#heading-支持能力"
+        - link "适用场景" [ref=e1282] [cursor=pointer]:
+          - /url: "#heading-适用场景"
+        - link "准备工作" [ref=e1283] [cursor=pointer]:
+          - /url: "#heading-准备工作"
+        - link "API Endpoints" [ref=e1284] [cursor=pointer]:
+          - /url: "#heading-api-endpoints"
+        - link "创建视频任务" [ref=e1285] [cursor=pointer]:
+          - /url: "#heading-创建视频任务"
+        - link "查询视频结果：推荐方式" [ref=e1286] [cursor=pointer]:
+          - /url: "#heading-查询视频结果推荐方式"
+        - link "查询视频结果：兼容旧方式" [ref=e1287] [cursor=pointer]:
+          - /url: "#heading-查询视频结果兼容旧方式"
+        - link "请求参数" [ref=e1288] [cursor=pointer]:
+          - /url: "#heading-请求参数"
+        - link "创建视频任务参数" [ref=e1289] [cursor=pointer]:
+          - /url: "#heading-创建视频任务参数"
+        - link "创建视频任务" [ref=e1290] [cursor=pointer]:
+          - /url: "#heading-创建视频任务-2"
+        - link "示例 1：文生视频" [ref=e1291] [cursor=pointer]:
+          - /url: "#heading-示例-1文生视频"
+        - link "示例 2：图生视频" [ref=e1292] [cursor=pointer]:
+          - /url: "#heading-示例-2图生视频"
+        - link "示例 3：多图视频生成" [ref=e1293] [cursor=pointer]:
+          - /url: "#heading-示例-3多图视频生成"
+        - link "示例 4：关键帧动画" [ref=e1294] [cursor=pointer]:
+          - /url: "#heading-示例-4关键帧动画"
+        - link "创建任务响应" [ref=e1295] [cursor=pointer]:
+          - /url: "#heading-创建任务响应"
+        - link "响应字段说明" [ref=e1296] [cursor=pointer]:
+          - /url: "#heading-响应字段说明"
+        - link "查询视频结果" [ref=e1297] [cursor=pointer]:
+          - /url: "#heading-查询视频结果"
+        - link "推荐方式：使用 video_id 查询" [ref=e1298] [cursor=pointer]:
+          - /url: "#heading-推荐方式使用-video-id-查询"
+        - link "可选参数：model_name" [ref=e1299] [cursor=pointer]:
+          - /url: "#heading-可选参数model-name"
+        - link "兼容方式：使用 task_id 查询" [ref=e1300] [cursor=pointer]:
+          - /url: "#heading-兼容方式使用-task-id-查询"
+        - link "查询结果响应" [ref=e1301] [cursor=pointer]:
+          - /url: "#heading-查询结果响应"
+        - link "结果字段说明" [ref=e1302] [cursor=pointer]:
+          - /url: "#heading-结果字段说明"
+        - link "任务状态说明" [ref=e1303] [cursor=pointer]:
+          - /url: "#heading-任务状态说明"
+        - link "视频时长控制" [ref=e1304] [cursor=pointer]:
+          - /url: "#heading-视频时长控制"
+        - link "常用时长参数" [ref=e1305] [cursor=pointer]:
+          - /url: "#heading-常用时长参数"
+        - link "推荐参数" [ref=e1306] [cursor=pointer]:
+          - /url: "#heading-推荐参数"
+        - link "Prompt 最佳实践" [ref=e1307] [cursor=pointer]:
+          - /url: "#heading-prompt-最佳实践"
+        - link "文生视频 Prompt" [ref=e1308] [cursor=pointer]:
+          - /url: "#heading-文生视频-prompt"
+        - link "图生视频 Prompt" [ref=e1309] [cursor=pointer]:
+          - /url: "#heading-图生视频-prompt"
+        - link "多图视频 Prompt" [ref=e1310] [cursor=pointer]:
+          - /url: "#heading-多图视频-prompt"
+        - link "关键帧动画 Prompt" [ref=e1311] [cursor=pointer]:
+          - /url: "#heading-关键帧动画-prompt"
+        - link "错误码" [ref=e1312] [cursor=pointer]:
+          - /url: "#heading-错误码"
+        - link "价格" [ref=e1313] [cursor=pointer]:
+          - /url: "#heading-价格"
+        - link "注意事项" [ref=e1314] [cursor=pointer]:
+          - /url: "#heading-注意事项"

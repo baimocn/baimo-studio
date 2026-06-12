@@ -8,6 +8,11 @@ logger = logging.getLogger("baimo")
 
 
 class AgnesImageService(AgnesBaseService):
+    """Agnes AI 图像生成服务。
+
+    官方文档：image 参数统一放在 extra_body 中（2.0-flash 和 2.1-flash 相同）。
+    response_format 也必须在 extra_body 中。
+    """
     BASE_URL = f"{settings.agnes_api_base}/v1/images/generations"
     MODEL_2_1_FLASH = "agnes-image-2.1-flash"
     MODEL_2_0_FLASH = "agnes-image-2.0-flash"
@@ -32,37 +37,32 @@ class AgnesImageService(AgnesBaseService):
         return await self._post_and_extract_url(payload)
 
     async def edit(self, image_url: str, prompt: str, size: str = "1024x768", model: str = MODEL_2_1_FLASH, negative_prompt: str | None = None) -> str:
-        """图生图 — 根据模型版本区分 image 参数位置：
-        - 2.1-flash: image 在顶层
-        - 2.0-flash: image 在 extra_body 中
+        """图生图 — image 放在 extra_body 中（2.0-flash 和 2.1-flash 相同）。
+
+        官方文档原文：
+        - 2.0-flash: "image 数组放在 extra_body 中"
+        - 2.1-flash: "请将输入图片放在 extra_body 的 image 数组中"
         """
         payload = {
             "model": model,
             "prompt": prompt,
             "size": size,
-            "extra_body": {"response_format": "url"},
+            "extra_body": {
+                "image": [image_url],
+                "response_format": "url",
+            },
         }
-
-        # 官方文档：2.1-flash 图生图 image 在顶层，2.0-flash 在 extra_body
-        if model == self.MODEL_2_0_FLASH:
-            payload["extra_body"]["image"] = [image_url]
-        else:
-            payload["image"] = [image_url]
-
         return await self._post_and_extract_url(payload)
 
     async def compose(self, image_urls: list[str], prompt: str, size: str = "1024x768", model: str = MODEL_2_0_FLASH) -> str:
-        """多图合成 — 根据模型版本区分 image 位置。"""
+        """多图合成 — image 数组放在 extra_body 中。"""
         payload = {
             "model": model,
             "prompt": prompt,
             "size": size,
-            "extra_body": {"response_format": "url"},
+            "extra_body": {
+                "image": image_urls,
+                "response_format": "url",
+            },
         }
-
-        if model == self.MODEL_2_0_FLASH:
-            payload["extra_body"]["image"] = image_urls
-        else:
-            payload["image"] = image_urls
-
         return await self._post_and_extract_url(payload)

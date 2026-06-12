@@ -1,0 +1,1027 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e4]: Agnes AI | AI Gateway, Free AI API & AI Applications
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "Agnes AI 首页" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "Agnes AI" [ref=e8]
+      - navigation [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11] [cursor=pointer]: 模型
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "文本"
+                    - generic: 文本
+                  - generic:
+                    - link "Agnes 1.5 Flash":
+                      - /url: /doc/agnes-15-flash
+                      - generic:
+                        - generic: Agnes 1.5 Flash
+                    - link "Agnes 2.0 Flash new":
+                      - /url: /doc/agnes-20-flash
+                      - generic:
+                        - generic: Agnes 2.0 Flash
+                        - img "new"
+                - generic:
+                  - generic:
+                    - img "图像"
+                    - generic: 图像
+                  - generic:
+                    - link "Agnes Image 2.0 Flash new":
+                      - /url: /doc/agnes-image-20-flash
+                      - generic:
+                        - generic: Agnes Image 2.0 Flash
+                        - img "new"
+                    - link "Agnes Image 2.1 Flash new":
+                      - /url: /doc/agnes-image-21-flash
+                      - generic:
+                        - generic: Agnes Image 2.1 Flash
+                        - img "new"
+                - generic:
+                  - generic:
+                    - img "视频"
+                    - generic: 视频
+                  - generic:
+                    - link "Agnes Video V2.0 new":
+                      - /url: /doc/agnes-video-v20
+                      - generic:
+                        - generic: Agnes Video V2.0
+                        - img "new"
+        - generic [ref=e12]:
+          - generic [ref=e13] [cursor=pointer]: 产品
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "AI 原生应用"
+                    - generic: AI 原生应用
+                  - generic:
+                    - link "Agnes":
+                      - /url: https://app.agnes-ai.com
+                      - generic:
+                        - generic: Agnes
+                      - img
+                    - link "Pavo":
+                      - /url: https://app.pavo-ai.work
+                      - generic:
+                        - generic: Pavo
+                      - img
+                    - generic:
+                      - generic:
+                        - generic: Echo
+                      - img
+        - generic [ref=e14]:
+          - generic [ref=e15] [cursor=pointer]: API
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "在 Agnes 上开发"
+                    - generic: 在 Agnes 上开发
+                  - generic:
+                    - link "开发者文档":
+                      - /url: /doc/overview
+                      - generic:
+                        - generic: 开发者文档
+                    - link "API 平台":
+                      - /url: https://platform.agnes-ai.com
+                      - generic:
+                        - generic: API 平台
+                      - img
+        - generic [ref=e16]:
+          - generic [ref=e17] [cursor=pointer]: 公司
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "公司"
+                    - generic: 公司
+                  - generic:
+                    - link "隐私政策":
+                      - /url: /doc/privacy-policy
+                      - generic:
+                        - generic: 隐私政策
+                    - link "服务条款":
+                      - /url: /doc/terms-of-service
+                      - generic:
+                        - generic: 服务条款
+        - generic [ref=e18]:
+          - generic [ref=e19] [cursor=pointer]: 社区
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img "加入我们"
+                    - generic: 加入我们
+                  - generic:
+                    - link "线下活动":
+                      - /url: /meetups
+                      - generic:
+                        - generic: 线下活动
+                    - link "Discord":
+                      - /url: https://discord.com/invite/buKQPVMW2s
+                      - generic:
+                        - generic: Discord
+                      - img
+                    - button "WeChat":
+                      - generic:
+                        - generic: WeChat
+        - link "研究" [ref=e20] [cursor=pointer]:
+          - /url: /research
+        - link "商务" [ref=e21] [cursor=pointer]:
+          - /url: /business
+    - generic [ref=e22]:
+      - button "登录" [ref=e23] [cursor=pointer]
+      - generic:
+        - menu:
+          - menuitem "API 平台":
+            - generic: API 平台
+            - img
+          - menuitem "Agnes":
+            - generic: Agnes
+            - img
+          - menuitem "Pavo":
+            - generic: Pavo
+            - img
+  - generic [ref=e25]:
+    - complementary [ref=e26]:
+      - generic [ref=e28]:
+        - generic:
+          - img
+        - generic [ref=e29] [cursor=pointer]:
+          - generic "简体中文" [ref=e30]:
+            - text: 简体中文
+            - combobox [ref=e31]
+          - img "down" [ref=e33]:
+            - img [ref=e34]
+      - generic [ref=e36]:
+        - generic [ref=e38]:
+          - generic:
+            - img
+          - textbox "搜索…" [ref=e39]
+        - generic [ref=e42]:
+          - heading [level=4]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - generic [ref=e45]:
+                - button "开始使用" [ref=e46] [cursor=pointer]
+                - img [ref=e48] [cursor=pointer]
+            - listitem [ref=e50]:
+              - generic [ref=e51]:
+                - button "模型" [ref=e52] [cursor=pointer]
+                - img [ref=e54] [cursor=pointer]
+              - list [ref=e56]:
+                - listitem [ref=e57]:
+                  - generic [ref=e58]:
+                    - button "文本" [ref=e59] [cursor=pointer]
+                    - img [ref=e61] [cursor=pointer]
+                - listitem [ref=e63]:
+                  - generic [ref=e64]:
+                    - button "图像" [ref=e65] [cursor=pointer]
+                    - img [ref=e67] [cursor=pointer]
+                  - list [ref=e69]:
+                    - listitem [ref=e70]:
+                      - button "Agnes Image 2.0 Flash" [ref=e72] [cursor=pointer]
+                    - listitem [ref=e73]:
+                      - button "Agnes Image 2.1 Flash" [ref=e75] [cursor=pointer]
+                - listitem [ref=e76]:
+                  - generic [ref=e77]:
+                    - button "视频" [ref=e78] [cursor=pointer]
+                    - img [ref=e80] [cursor=pointer]
+            - listitem [ref=e82]:
+              - generic [ref=e83]:
+                - button "FAQs" [ref=e84] [cursor=pointer]
+                - img [ref=e86] [cursor=pointer]
+            - listitem [ref=e88]:
+              - generic [ref=e89]:
+                - button "常见接入文档" [ref=e90] [cursor=pointer]
+                - img [ref=e92] [cursor=pointer]
+            - listitem [ref=e94]:
+              - generic [ref=e95]:
+                - button "条款与政策" [ref=e96] [cursor=pointer]
+                - img [ref=e98] [cursor=pointer]
+    - main [ref=e100]:
+      - generic [ref=e101]:
+        - button "复制页面" [ref=e103] [cursor=pointer]:
+          - img [ref=e104]
+          - text: 复制页面
+        - main [ref=e106]:
+          - heading "Agnes Image 2.1 Flash" [level=2] [ref=e107]:
+            - generic [ref=e108]:
+              - link "Agnes Image 2.1 Flash" [ref=e109] [cursor=pointer]:
+                - /url: "#3764a189eee5800f82c5d469b2e8e246"
+                - img [ref=e110]
+              - text: Agnes Image 2.1 Flash
+          - heading "模型概述" [level=3] [ref=e112]:
+            - generic [ref=e113]:
+              - link "模型概述" [ref=e114] [cursor=pointer]:
+                - /url: "#3764a189eee580be82a3c423bbd06b21"
+                - img [ref=e115]
+              - text: 模型概述
+          - generic [ref=e117]: Agnes Image 2.1 Flash 是 Sapiens AI 升级推出的图像生成模型，支持 文生图 和 图生图 两种工作流。
+          - generic [ref=e118]: 相比之前版本，Agnes Image 2.1 Flash 在 高信息密度图像 生成方面进行了优化，更适合复杂视觉细节、丰富构图、密集元素和清晰语义对齐等场景。
+          - generic [ref=e119]: Agnes Image 2.1 Flash 可用于根据文本提示词生成图像，也可基于已有图片进行风格转换、局部优化、场景重塑或视觉增强，并支持以图片 URL 或 Base64 数据形式返回生成结果。
+          - separator [ref=e120]
+          - heading "核心能力" [level=2] [ref=e121]:
+            - generic [ref=e122]:
+              - link "核心能力" [ref=e123] [cursor=pointer]:
+                - /url: "#3764a189eee5808ca2cdddeccb3f29ba"
+                - img [ref=e124]
+              - text: 核心能力
+          - table [ref=e126]:
+            - rowgroup [ref=e127]:
+              - row "能力 说明" [ref=e128]:
+                - cell "能力" [ref=e129]:
+                  - generic [ref=e130]: 能力
+                - cell "说明" [ref=e131]:
+                  - generic [ref=e132]: 说明
+              - row "文生图 根据自然语言提示词生成高质量图片" [ref=e133]:
+                - cell "文生图" [ref=e134]:
+                  - generic [ref=e135]: 文生图
+                - cell "根据自然语言提示词生成高质量图片" [ref=e136]:
+                  - generic [ref=e137]: 根据自然语言提示词生成高质量图片
+              - row "图生图 根据提示词对已有图片进行转换、编辑或优化" [ref=e138]:
+                - cell "图生图" [ref=e139]:
+                  - generic [ref=e140]: 图生图
+                - cell "根据提示词对已有图片进行转换、编辑或优化" [ref=e141]:
+                  - generic [ref=e142]: 根据提示词对已有图片进行转换、编辑或优化
+              - row "高信息密度图像优化 更好处理复杂布局、丰富细节和密集视觉元素" [ref=e143]:
+                - cell "高信息密度图像优化" [ref=e144]:
+                  - generic [ref=e145]: 高信息密度图像优化
+                - cell "更好处理复杂布局、丰富细节和密集视觉元素" [ref=e146]:
+                  - generic [ref=e147]: 更好处理复杂布局、丰富细节和密集视觉元素
+              - row "构图保持 图生图时可尽量保持原图构图、主体结构和视角" [ref=e148]:
+                - cell "构图保持" [ref=e149]:
+                  - generic [ref=e150]: 构图保持
+                - cell "图生图时可尽量保持原图构图、主体结构和视角" [ref=e151]:
+                  - generic [ref=e152]: 图生图时可尽量保持原图构图、主体结构和视角
+              - row "灵活尺寸控制 支持自定义输出尺寸，例如 1024x768" [ref=e153]:
+                - cell "灵活尺寸控制" [ref=e154]:
+                  - generic [ref=e155]: 灵活尺寸控制
+                - cell "支持自定义输出尺寸，例如 1024x768" [ref=e156]:
+                  - generic [ref=e157]:
+                    - text: 支持自定义输出尺寸，例如
+                    - code [ref=e158]: 1024x768
+              - row "URL 返回 支持将生成结果以可访问图片 URL 返回" [ref=e159]:
+                - cell "URL 返回" [ref=e160]:
+                  - generic [ref=e161]: URL 返回
+                - cell "支持将生成结果以可访问图片 URL 返回" [ref=e162]:
+                  - generic [ref=e163]: 支持将生成结果以可访问图片 URL 返回
+              - row "Base64 返回 支持将生成结果以 Base64 数据返回" [ref=e164]:
+                - cell "Base64 返回" [ref=e165]:
+                  - generic [ref=e166]: Base64 返回
+                - cell "支持将生成结果以 Base64 数据返回" [ref=e167]:
+                  - generic [ref=e168]: 支持将生成结果以 Base64 数据返回
+              - row "URL 或 Data URI 输入 图生图支持公网图片 URL 或 Data URI Base64 输入" [ref=e169]:
+                - cell "URL 或 Data URI 输入" [ref=e170]:
+                  - generic [ref=e171]: URL 或 Data URI 输入
+                - cell "图生图支持公网图片 URL 或 Data URI Base64 输入" [ref=e172]:
+                  - generic [ref=e173]: 图生图支持公网图片 URL 或 Data URI Base64 输入
+          - separator [ref=e174]
+          - heading "适用场景" [level=2] [ref=e175]:
+            - generic [ref=e176]:
+              - link "适用场景" [ref=e177] [cursor=pointer]:
+                - /url: "#3764a189eee580c1b59fd285a835410c"
+                - img [ref=e178]
+              - text: 适用场景
+          - generic [ref=e180]: Agnes Image 2.1 Flash 适用于以下场景：
+          - table [ref=e181]:
+            - rowgroup [ref=e182]:
+              - row "场景 示例用途" [ref=e183]:
+                - cell "场景" [ref=e184]:
+                  - generic [ref=e185]: 场景
+                - cell "示例用途" [ref=e186]:
+                  - generic [ref=e187]: 示例用途
+              - row "创意设计 概念图、视觉探索、海报草图" [ref=e188]:
+                - cell "创意设计" [ref=e189]:
+                  - generic [ref=e190]: 创意设计
+                - cell "概念图、视觉探索、海报草图" [ref=e191]:
+                  - generic [ref=e192]: 概念图、视觉探索、海报草图
+              - row "营销内容 活动图、产品视觉、社交媒体素材" [ref=e193]:
+                - cell "营销内容" [ref=e194]:
+                  - generic [ref=e195]: 营销内容
+                - cell "活动图、产品视觉、社交媒体素材" [ref=e196]:
+                  - generic [ref=e197]: 活动图、产品视觉、社交媒体素材
+              - row "高密度视觉生成 复杂场景、丰富构图、密集元素画面" [ref=e198]:
+                - cell "高密度视觉生成" [ref=e199]:
+                  - generic [ref=e200]: 高密度视觉生成
+                - cell "复杂场景、丰富构图、密集元素画面" [ref=e201]:
+                  - generic [ref=e202]: 复杂场景、丰富构图、密集元素画面
+              - row "图片转换 风格迁移、场景重打光、背景转换" [ref=e203]:
+                - cell "图片转换" [ref=e204]:
+                  - generic [ref=e205]: 图片转换
+                - cell "风格迁移、场景重打光、背景转换" [ref=e206]:
+                  - generic [ref=e207]: 风格迁移、场景重打光、背景转换
+              - row "内容生产 App 素材、缩略图、Banner、叙事视觉" [ref=e208]:
+                - cell "内容生产" [ref=e209]:
+                  - generic [ref=e210]: 内容生产
+                - cell "App 素材、缩略图、Banner、叙事视觉" [ref=e211]:
+                  - generic [ref=e212]: App 素材、缩略图、Banner、叙事视觉
+              - row "产品视觉 产品图、展示图、商业视觉" [ref=e213]:
+                - cell "产品视觉" [ref=e214]:
+                  - generic [ref=e215]: 产品视觉
+                - cell "产品图、展示图、商业视觉" [ref=e216]:
+                  - generic [ref=e217]: 产品图、展示图、商业视觉
+              - row "社交媒体素材 封面图、横幅图、帖子配图" [ref=e218]:
+                - cell "社交媒体素材" [ref=e219]:
+                  - generic [ref=e220]: 社交媒体素材
+                - cell "封面图、横幅图、帖子配图" [ref=e221]:
+                  - generic [ref=e222]: 封面图、横幅图、帖子配图
+          - separator [ref=e223]
+          - heading "API 信息" [level=2] [ref=e224]:
+            - generic [ref=e225]:
+              - link "API 信息" [ref=e226] [cursor=pointer]:
+                - /url: "#3764a189eee58012a98bcf4160423ebc"
+                - img [ref=e227]
+              - text: API 信息
+          - heading "Base URL" [level=3] [ref=e229]:
+            - generic [ref=e230]:
+              - link "Base URL" [ref=e231] [cursor=pointer]:
+                - /url: "#3764a189eee5800a82a9e44335be5f03"
+                - img [ref=e232]
+              - text: Base URL
+          - generic [ref=e234]:
+            - img [ref=e237] [cursor=pointer]
+            - code [ref=e240]: https://apihub.agnes-ai.com
+          - heading "接口地址" [level=3] [ref=e241]:
+            - generic [ref=e242]:
+              - link "接口地址" [ref=e243] [cursor=pointer]:
+                - /url: "#3764a189eee580e6a0eee11828766cc4"
+                - img [ref=e244]
+              - text: 接口地址
+          - table [ref=e246]:
+            - rowgroup [ref=e247]:
+              - row "项目 说明" [ref=e248]:
+                - cell "项目" [ref=e249]:
+                  - generic [ref=e250]: 项目
+                - cell "说明" [ref=e251]:
+                  - generic [ref=e252]: 说明
+              - row "API Endpoint https://apihub.agnes-ai.com/v1/images/generations" [ref=e253]:
+                - cell "API Endpoint" [ref=e254]:
+                  - generic [ref=e255]: API Endpoint
+                - cell "https://apihub.agnes-ai.com/v1/images/generations" [ref=e256]:
+                  - code [ref=e258]: https://apihub.agnes-ai.com/v1/images/generations
+              - row "请求方法 POST" [ref=e259]:
+                - cell "请求方法" [ref=e260]:
+                  - generic [ref=e261]: 请求方法
+                - cell "POST" [ref=e262]:
+                  - code [ref=e264]: POST
+              - row "Content-Type application/json" [ref=e265]:
+                - cell "Content-Type" [ref=e266]:
+                  - generic [ref=e267]: Content-Type
+                - cell "application/json" [ref=e268]:
+                  - code [ref=e270]: application/json
+              - row "认证方式 Bearer Token" [ref=e271]:
+                - cell "认证方式" [ref=e272]:
+                  - generic [ref=e273]: 认证方式
+                - cell "Bearer Token" [ref=e274]:
+                  - generic [ref=e275]: Bearer Token
+              - 'row "认证 Header Authorization: Bearer YOUR_API_KEY" [ref=e276]':
+                - cell "认证 Header" [ref=e277]:
+                  - generic [ref=e278]: 认证 Header
+                - 'cell "Authorization: Bearer YOUR_API_KEY" [ref=e279]':
+                  - code [ref=e281]: "Authorization: Bearer YOUR_API_KEY"
+          - separator [ref=e282]
+          - heading "模型名称" [level=2] [ref=e283]:
+            - generic [ref=e284]:
+              - link "模型名称" [ref=e285] [cursor=pointer]:
+                - /url: "#3764a189eee580649e36d0a8434d3107"
+                - img [ref=e286]
+              - text: 模型名称
+          - generic [ref=e288]: 文生图和图生图均使用以下模型名称：
+          - generic [ref=e289]:
+            - img [ref=e292] [cursor=pointer]
+            - code [ref=e295]: agnes-image-2.1-flash
+          - separator [ref=e296]
+          - heading "重要说明" [level=2] [ref=e297]:
+            - generic [ref=e298]:
+              - link "重要说明" [ref=e299] [cursor=pointer]:
+                - /url: "#3764a189eee580598e67c5302c808ffa"
+                - img [ref=e300]
+              - text: 重要说明
+          - list [ref=e302]:
+            - listitem [ref=e303]:
+              - text: 请使用
+              - code [ref=e304]: agnes-image-2.1-flash
+              - text: 作为模型名称。
+          - list [ref=e305]:
+            - listitem [ref=e306]:
+              - text: 文生图请求中，
+              - code [ref=e307]: model
+              - text: 、
+              - code [ref=e308]: prompt
+              - text: 、
+              - code [ref=e309]: size
+              - text: 为必填参数。
+          - list [ref=e310]:
+            - listitem [ref=e311]:
+              - text: 图生图请求中，请将输入图片放在顶层
+              - code [ref=e312]: image
+              - text: 数组中。
+          - list [ref=e313]:
+            - listitem [ref=e314]:
+              - code [ref=e315]: image
+              - text: 支持公网图片 URL，也支持 Data URI Base64。
+          - list [ref=e316]:
+            - listitem [ref=e317]:
+              - text: 不要将
+              - code [ref=e318]: response_format
+              - text: 放在请求体顶层，否则可能返回 400 错误。
+          - list [ref=e319]:
+            - listitem [ref=e320]:
+              - text: 如需 URL 输出，请将
+              - code [ref=e321]: "\"response_format\": \"url\""
+              - text: 放在
+              - code [ref=e322]: extra_body
+              - text: 中。
+          - list [ref=e323]:
+            - listitem [ref=e324]:
+              - text: 如需文生图 Base64 输出，可使用顶层参数
+              - code [ref=e325]: "\"return_base64\": true"
+              - text: 。
+          - list [ref=e326]:
+            - listitem [ref=e327]:
+              - text: 如需图生图 Base64 输出，请在
+              - code [ref=e328]: extra_body
+              - text: 中设置
+              - code [ref=e329]: "\"response_format\": \"b64_json\""
+              - text: 。
+          - list [ref=e330]:
+            - listitem [ref=e331]:
+              - text: 图生图不需要传
+              - code [ref=e332]: "tags: [\"img2img\"]"
+              - text: 。
+          - list [ref=e333]:
+            - listitem [ref=e334]:
+              - text: 公开文档中不要暴露临时 API Key，请统一使用
+              - code [ref=e335]: YOUR_API_KEY
+              - text: 。
+          - separator [ref=e336]
+          - heading "请求参数" [level=2] [ref=e337]:
+            - generic [ref=e338]:
+              - link "请求参数" [ref=e339] [cursor=pointer]:
+                - /url: "#3764a189eee580f28ceed22452624e97"
+                - img [ref=e340]
+              - text: 请求参数
+          - table [ref=e342]:
+            - rowgroup [ref=e343]:
+              - row "参数 类型 是否必填 说明" [ref=e344]:
+                - cell "参数" [ref=e345]:
+                  - generic [ref=e346]: 参数
+                - cell "类型" [ref=e347]:
+                  - generic [ref=e348]: 类型
+                - cell "是否必填" [ref=e349]:
+                  - generic [ref=e350]: 是否必填
+                - cell "说明" [ref=e351]:
+                  - generic [ref=e352]: 说明
+              - row "model string 是 模型名称，固定使用 agnes-image-2.1-flash" [ref=e353]:
+                - cell "model" [ref=e354]:
+                  - code [ref=e356]: model
+                - cell "string" [ref=e357]:
+                  - generic [ref=e358]: string
+                - cell "是" [ref=e359]:
+                  - generic [ref=e360]: 是
+                - cell "模型名称，固定使用 agnes-image-2.1-flash" [ref=e361]:
+                  - generic [ref=e362]:
+                    - text: 模型名称，固定使用
+                    - code [ref=e363]: agnes-image-2.1-flash
+              - row "prompt string 是 图片生成或图片编辑提示词" [ref=e364]:
+                - cell "prompt" [ref=e365]:
+                  - code [ref=e367]: prompt
+                - cell "string" [ref=e368]:
+                  - generic [ref=e369]: string
+                - cell "是" [ref=e370]:
+                  - generic [ref=e371]: 是
+                - cell "图片生成或图片编辑提示词" [ref=e372]:
+                  - generic [ref=e373]: 图片生成或图片编辑提示词
+              - row "size string 是 输出图片尺寸，例如 1024x768" [ref=e374]:
+                - cell "size" [ref=e375]:
+                  - code [ref=e377]: size
+                - cell "string" [ref=e378]:
+                  - generic [ref=e379]: string
+                - cell "是" [ref=e380]:
+                  - generic [ref=e381]: 是
+                - cell "输出图片尺寸，例如 1024x768" [ref=e382]:
+                  - generic [ref=e383]:
+                    - text: 输出图片尺寸，例如
+                    - code [ref=e384]: 1024x768
+              - row "image string[] 图生图必填 输入图片数组，支持公网 URL 或 Data URI Base64" [ref=e385]:
+                - cell "image" [ref=e386]:
+                  - code [ref=e388]: image
+                - cell "string[]" [ref=e389]:
+                  - generic [ref=e390]: string[]
+                - cell "图生图必填" [ref=e391]:
+                  - generic [ref=e392]: 图生图必填
+                - cell "输入图片数组，支持公网 URL 或 Data URI Base64" [ref=e393]:
+                  - generic [ref=e394]: 输入图片数组，支持公网 URL 或 Data URI Base64
+              - row "return_base64 boolean 否 文生图需要返回 Base64 时使用" [ref=e395]:
+                - cell "return_base64" [ref=e396]:
+                  - code [ref=e398]: return_base64
+                - cell "boolean" [ref=e399]:
+                  - generic [ref=e400]: boolean
+                - cell "否" [ref=e401]:
+                  - generic [ref=e402]: 否
+                - cell "文生图需要返回 Base64 时使用" [ref=e403]:
+                  - generic [ref=e404]: 文生图需要返回 Base64 时使用
+              - row "extra_body object 否 高级工作流扩展参数" [ref=e405]:
+                - cell "extra_body" [ref=e406]:
+                  - code [ref=e408]: extra_body
+                - cell "object" [ref=e409]:
+                  - generic [ref=e410]: object
+                - cell "否" [ref=e411]:
+                  - generic [ref=e412]: 否
+                - cell "高级工作流扩展参数" [ref=e413]:
+                  - generic [ref=e414]: 高级工作流扩展参数
+              - row "extra_body.response_format string 否 输出格式，常用值为 url 或 b64_json" [ref=e415]:
+                - cell "extra_body.response_format" [ref=e416]:
+                  - code [ref=e418]: extra_body.response_format
+                - cell "string" [ref=e419]:
+                  - generic [ref=e420]: string
+                - cell "否" [ref=e421]:
+                  - generic [ref=e422]: 否
+                - cell "输出格式，常用值为 url 或 b64_json" [ref=e423]:
+                  - generic [ref=e424]:
+                    - text: 输出格式，常用值为
+                    - code [ref=e425]: url
+                    - text: 或
+                    - code [ref=e426]: b64_json
+          - separator [ref=e427]
+          - heading "调用示例" [level=2] [ref=e428]:
+            - generic [ref=e429]:
+              - link "调用示例" [ref=e430] [cursor=pointer]:
+                - /url: "#3764a189eee5809da12de6b491e92ad8"
+                - img [ref=e431]
+              - text: 调用示例
+          - heading "1. 文生图：URL 输出" [level=3] [ref=e433]:
+            - generic [ref=e434]:
+              - link "1. 文生图：URL 输出" [ref=e435] [cursor=pointer]:
+                - /url: "#3764a189eee58065aacfc663163abc48"
+                - img [ref=e436]
+              - text: 1. 文生图：URL 输出
+          - generic [ref=e438]: 用于根据文本提示词生成图片，并以图片 URL 形式返回结果。
+          - generic [ref=e439]:
+            - img [ref=e442] [cursor=pointer]
+            - code [ref=e445]: "curl https://apihub.agnes-ai.com/v1/images/generations \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"A luminous floating city above a misty canyon at sunrise, cinematic realism\", \"size\": \"1024x768\", \"extra_body\": { \"response_format\": \"url\" } }'"
+          - generic [ref=e446]: 生成图片 URL 位于：
+          - generic [ref=e447]:
+            - img [ref=e450] [cursor=pointer]
+            - code [ref=e453]: data[0].url
+          - separator [ref=e454]
+          - heading "2. 文生图：Base64 输出" [level=3] [ref=e455]:
+            - generic [ref=e456]:
+              - link "2. 文生图：Base64 输出" [ref=e457] [cursor=pointer]:
+                - /url: "#3764a189eee58082ba65ee8f477cb350"
+                - img [ref=e458]
+              - text: 2. 文生图：Base64 输出
+          - generic [ref=e460]: 用于将生成图片以 Base64 数据形式返回。
+          - generic [ref=e461]:
+            - img [ref=e464] [cursor=pointer]
+            - code [ref=e467]: "curl https://apihub.agnes-ai.com/v1/images/generations \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"A clean product photo of a glass cube on a white studio background, soft shadows, high detail\", \"size\": \"1024x768\", \"return_base64\": true }'"
+          - generic [ref=e468]: 生成图片 Base64 位于：
+          - generic [ref=e469]:
+            - img [ref=e472] [cursor=pointer]
+            - code [ref=e475]: data[0].b64_json
+          - separator [ref=e476]
+          - heading "3. 图生图：URL 输入，URL 输出" [level=3] [ref=e477]:
+            - generic [ref=e478]:
+              - link "3. 图生图：URL 输入，URL 输出" [ref=e479] [cursor=pointer]:
+                - /url: "#3764a189eee5803e9b53c35ed583711a"
+                - img [ref=e480]
+              - text: 3. 图生图：URL 输入，URL 输出
+          - generic [ref=e482]: 用于基于已有图片进行转换，并尽量保持原图构图。
+          - generic [ref=e483]:
+            - img [ref=e486] [cursor=pointer]
+            - code [ref=e489]: "curl https://apihub.agnes-ai.com/v1/images/generations \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Transform the scene into a rain-soaked cyberpunk night with neon reflections while preserving the original composition\", \"size\": \"1024x768\", \"extra_body\": { \"image\": [ \"https://example.com/input-image.png\" ], \"response_format\": \"url\" } }'"
+          - generic [ref=e490]: 生成图片 URL 位于：
+          - generic [ref=e491]:
+            - img [ref=e494] [cursor=pointer]
+            - code [ref=e497]: data[0].url
+          - separator [ref=e498]
+          - heading "4. 图生图：URL 输入，Base64 输出" [level=3] [ref=e499]:
+            - generic [ref=e500]:
+              - link "4. 图生图：URL 输入，Base64 输出" [ref=e501] [cursor=pointer]:
+                - /url: "#3764a189eee580a499e2e06f917c8e47"
+                - img [ref=e502]
+              - text: 4. 图生图：URL 输入，Base64 输出
+          - generic [ref=e504]: 用于输入图片为公网 URL，输出结果为 Base64 数据的场景。
+          - generic [ref=e505]:
+            - img [ref=e508] [cursor=pointer]
+            - code [ref=e511]: "curl https://apihub.agnes-ai.com/v1/images/generations \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Make the object orange while preserving the original composition\", \"size\": \"1024x768\" \"extra_body\": { \"image\": [ \"https://example.com/input-image.png\" ], \"response_format\": \"b64_json\" } }'"
+          - generic [ref=e512]: 生成图片 Base64 位于：
+          - generic [ref=e513]:
+            - img [ref=e516] [cursor=pointer]
+            - code [ref=e519]: data[0].b64_json
+          - separator [ref=e520]
+          - heading "5. 图生图：Data URI Base64 输入" [level=3] [ref=e521]:
+            - generic [ref=e522]:
+              - link "5. 图生图：Data URI Base64 输入" [ref=e523] [cursor=pointer]:
+                - /url: "#3764a189eee580648beef4c98c5fe37b"
+                - img [ref=e524]
+              - text: 5. 图生图：Data URI Base64 输入
+          - generic [ref=e526]: 图生图也支持使用 Data URI Base64 作为输入图片。
+          - generic [ref=e527]: Data URI 格式：
+          - generic [ref=e528]:
+            - img [ref=e531] [cursor=pointer]
+            - code [ref=e534]: data:image/png;base64,BASE64_HERE
+          - generic [ref=e535]: 请求示例：
+          - generic [ref=e536]:
+            - img [ref=e539] [cursor=pointer]
+            - code [ref=e542]: "curl https://apihub.agnes-ai.com/v1/images/generations \\ -H \"Authorization: Bearer YOUR_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Make the object matte black while preserving the original composition\", \"size\": \"1024x768\", \"extra_body\": { \"image\": [ \"data:image/png;base64,BASE64_HERE\" ], \"response_format\": \"b64_json\" } }'"
+          - separator [ref=e543]
+          - heading "返回格式" [level=2] [ref=e544]:
+            - generic [ref=e545]:
+              - link "返回格式" [ref=e546] [cursor=pointer]:
+                - /url: "#3764a189eee580d898bfc7b2fcbe617a"
+                - img [ref=e547]
+              - text: 返回格式
+          - heading "URL 输出" [level=3] [ref=e549]:
+            - generic [ref=e550]:
+              - link "URL 输出" [ref=e551] [cursor=pointer]:
+                - /url: "#3764a189eee580f38cead766118c1491"
+                - img [ref=e552]
+              - text: URL 输出
+          - generic [ref=e554]:
+            - text: 当
+            - code [ref=e555]: extra_body.response_format
+            - text: 设置为
+            - code [ref=e556]: url
+            - text: 时，返回格式如下：
+          - generic [ref=e557]:
+            - img [ref=e560] [cursor=pointer]
+            - code [ref=e563]: "{ \"created\": 1780000000, \"data\": [ { \"url\": \"https://storage.googleapis.com/agnes-aigc/xxx.png\", \"b64_json\": null, \"revised_prompt\": null } ] }"
+          - generic [ref=e564]: 生成图片 URL：
+          - generic [ref=e565]:
+            - img [ref=e568] [cursor=pointer]
+            - code [ref=e571]: data[0].url
+          - separator [ref=e572]
+          - heading "Base64 输出" [level=3] [ref=e573]:
+            - generic [ref=e574]:
+              - link "Base64 输出" [ref=e575] [cursor=pointer]:
+                - /url: "#3764a189eee58094bcd7ec5a17daa9f3"
+                - img [ref=e576]
+              - text: Base64 输出
+          - generic [ref=e578]: 当启用 Base64 输出时，返回格式如下：
+          - generic [ref=e579]:
+            - img [ref=e582] [cursor=pointer]
+            - code [ref=e585]: "{ \"created\": 1780000000, \"data\": [ { \"url\": null, \"b64_json\": \"iVBORw0KGgoAAAANSUhEUgAA...\", \"revised_prompt\": null } ] }"
+          - generic [ref=e586]: 生成图片 Base64：
+          - generic [ref=e587]:
+            - img [ref=e590] [cursor=pointer]
+            - code [ref=e593]: data[0].b64_json
+          - separator [ref=e594]
+          - heading "推荐提示词结构" [level=2] [ref=e595]:
+            - generic [ref=e596]:
+              - link "推荐提示词结构" [ref=e597] [cursor=pointer]:
+                - /url: "#3764a189eee58062b9a7ee129f554b48"
+                - img [ref=e598]
+              - text: 推荐提示词结构
+          - generic [ref=e600]: 为了获得更好的图像生成效果，建议使用清晰的提示词结构：
+          - generic [ref=e601]:
+            - img [ref=e604] [cursor=pointer]
+            - code [ref=e607]: "[主体] + [场景 / 环境] + [风格] + [光照] + [构图] + [质量要求]"
+          - heading "示例" [level=3] [ref=e608]:
+            - generic [ref=e609]:
+              - link "示例" [ref=e610] [cursor=pointer]:
+                - /url: "#3764a189eee580188f01f26375966d26"
+                - img [ref=e611]
+              - text: 示例
+          - generic [ref=e613]:
+            - img [ref=e616] [cursor=pointer]
+            - code [ref=e619]: A luminous floating city above a misty canyon at sunrise, cinematic realism, wide-angle composition, rich architectural details, soft golden light, high visual density
+          - generic [ref=e620]: 对于图生图任务，需要明确说明“要改变什么”和“要保留什么”。
+          - generic [ref=e621]:
+            - img [ref=e624] [cursor=pointer]
+            - code [ref=e627]: Transform the scene into a rain-soaked cyberpunk night with neon reflections while preserving the original composition and main subject layout.
+          - separator [ref=e628]
+          - heading "最佳实践" [level=2] [ref=e629]:
+            - generic [ref=e630]:
+              - link "最佳实践" [ref=e631] [cursor=pointer]:
+                - /url: "#3764a189eee580398f32dbfdc3c0c469"
+                - img [ref=e632]
+              - text: 最佳实践
+          - heading "文生图建议" [level=3] [ref=e634]:
+            - generic [ref=e635]:
+              - link "文生图建议" [ref=e636] [cursor=pointer]:
+                - /url: "#3764a189eee5803ca21cf56ad202ef20"
+                - img [ref=e637]
+              - text: 文生图建议
+          - generic [ref=e639]: 生成复杂图片时，建议使用更具体的提示词，包含主体、环境、风格、光照、镜头角度和细节要求。
+          - generic [ref=e640]: 较好示例：
+          - generic [ref=e641]:
+            - img [ref=e644] [cursor=pointer]
+            - code [ref=e647]: A futuristic city marketplace filled with flying vehicles, holographic signs, dense crowds, neon lighting, cinematic realism, ultra-detailed, high-information-density composition
+          - generic [ref=e648]: 推荐包含以下元素：
+          - list [ref=e649]:
+            - listitem [ref=e650]: 主体
+          - list [ref=e651]:
+            - listitem [ref=e652]: 场景或环境
+          - list [ref=e653]:
+            - listitem [ref=e654]: 视觉风格
+          - list [ref=e655]:
+            - listitem [ref=e656]: 光照
+          - list [ref=e657]:
+            - listitem [ref=e658]: 镜头角度
+          - list [ref=e659]:
+            - listitem [ref=e660]: 构图
+          - list [ref=e661]:
+            - listitem [ref=e662]: 细节密度
+          - list [ref=e663]:
+            - listitem [ref=e664]: 质量要求
+          - separator [ref=e665]
+          - heading "图生图建议" [level=3] [ref=e666]:
+            - generic [ref=e667]:
+              - link "图生图建议" [ref=e668] [cursor=pointer]:
+                - /url: "#3764a189eee580ec9764fde643b8932a"
+                - img [ref=e669]
+              - text: 图生图建议
+          - generic [ref=e671]: 编辑已有图片时，建议同时说明转换要求和保留要求。
+          - generic [ref=e672]: 较好示例：
+          - generic [ref=e673]:
+            - img [ref=e676] [cursor=pointer]
+            - code [ref=e679]: Convert the image into a fantasy winter landscape, add snow, warm window lights, and a magical atmosphere, while preserving the original building structure and camera angle.
+          - generic [ref=e680]: 推荐结构：
+          - generic [ref=e681]:
+            - img [ref=e684] [cursor=pointer]
+            - code [ref=e687]: "[修改要求] + [新风格 / 新场景] + [需要添加或移除的元素] + [需要保留的元素]"
+          - generic [ref=e688]: 示例：
+          - generic [ref=e689]:
+            - img [ref=e692] [cursor=pointer]
+            - code [ref=e695]: Change the daytime street scene into a cinematic cyberpunk night scene, add neon signs and wet road reflections, while preserving the original street layout, camera angle, and main building shapes.
+          - separator [ref=e696]
+          - heading "高信息密度图片建议" [level=3] [ref=e697]:
+            - generic [ref=e698]:
+              - link "高信息密度图片建议" [ref=e699] [cursor=pointer]:
+                - /url: "#3764a189eee5809f9c4aecd675fd0d5d"
+                - img [ref=e700]
+              - text: 高信息密度图片建议
+          - generic [ref=e702]: Agnes Image 2.1 Flash 针对复杂、细节丰富的视觉画面进行了优化。为了获得更好的结果，建议明确描述视觉层级。
+          - generic [ref=e703]: 推荐包含：
+          - list [ref=e704]:
+            - listitem [ref=e705]: 主体
+          - list [ref=e706]:
+            - listitem [ref=e707]: 背景环境
+          - list [ref=e708]:
+            - listitem [ref=e709]: 重要次要元素
+          - list [ref=e710]:
+            - listitem [ref=e711]: 风格和光照
+          - list [ref=e712]:
+            - listitem [ref=e713]: 构图约束
+          - list [ref=e714]:
+            - listitem [ref=e715]: 图生图时需要保留的内容
+          - generic [ref=e716]: 较好示例：
+          - generic [ref=e717]:
+            - img [ref=e720] [cursor=pointer]
+            - code [ref=e723]: A large fantasy harbor city built on cliffs, hundreds of small boats, layered stone bridges, glowing windows, distant mountains, cloudy sunset sky, cinematic fantasy realism, wide-angle composition, rich architectural details, high visual density
+          - separator [ref=e724]
+          - heading "常见错误与排查" [level=2] [ref=e725]:
+            - generic [ref=e726]:
+              - link "常见错误与排查" [ref=e727] [cursor=pointer]:
+                - /url: "#3764a189eee580b7b75cc5e4afcbfe4f"
+                - img [ref=e728]
+              - text: 常见错误与排查
+          - heading "1. response_format 放在顶层导致报错" [level=3] [ref=e730]:
+            - generic [ref=e731]:
+              - link "1. response_format 放在顶层导致报错" [ref=e732] [cursor=pointer]:
+                - /url: "#3764a189eee580449c38e2ad1dda75ef"
+                - img [ref=e733]
+              - generic [ref=e735]:
+                - text: "1."
+                - code [ref=e736]: response_format
+                - text: 放在顶层导致报错
+          - generic [ref=e737]:
+            - text: 不要将
+            - code [ref=e738]: response_format
+            - text: 放在请求体顶层。
+          - generic [ref=e739]: 错误示例：
+          - generic [ref=e740]:
+            - img [ref=e743] [cursor=pointer]
+            - code [ref=e746]: "{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"A futuristic city\", \"size\": \"1024x768\", \"response_format\": \"url\" }"
+          - generic [ref=e747]: 正确示例：
+          - generic [ref=e748]:
+            - img [ref=e751] [cursor=pointer]
+            - code [ref=e754]: "{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"A futuristic city\", \"size\": \"1024x768\", \"extra_body\": { \"response_format\": \"url\" } }"
+          - separator [ref=e755]
+          - heading "2. 图生图不需要 tags" [level=3] [ref=e756]:
+            - generic [ref=e757]:
+              - link "2. 图生图不需要 tags" [ref=e758] [cursor=pointer]:
+                - /url: "#3764a189eee580709d79eb2849e55a08"
+                - img [ref=e759]
+              - generic [ref=e761]:
+                - text: 2. 图生图不需要
+                - code [ref=e762]: tags
+          - generic [ref=e763]: 不要传：
+          - generic [ref=e764]:
+            - img [ref=e767] [cursor=pointer]
+            - code [ref=e770]: "{ \"tags\": [\"img2img\"] }"
+          - generic [ref=e771]:
+            - text: 图生图只需要在
+            - code [ref=e772]: image
+            - text: 数组中提供输入图片。
+          - generic [ref=e773]: 正确示例：
+          - generic [ref=e774]:
+            - img [ref=e777] [cursor=pointer]
+            - code [ref=e780]: "{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Make the object blue while preserving the original composition\", \"size\": \"1024x768\", \"extra_body\": { \"image\": [ \"https://example.com/input.png\" ], \"response_format\": \"url\" } }"
+          - separator [ref=e781]
+          - heading "3. 输入图片 URL 不可访问" [level=3] [ref=e782]:
+            - generic [ref=e783]:
+              - link "3. 输入图片 URL 不可访问" [ref=e784] [cursor=pointer]:
+                - /url: "#3764a189eee580bfb12cfc210867c6f0"
+                - img [ref=e785]
+              - text: 3. 输入图片 URL 不可访问
+          - generic [ref=e787]: 如果输入图片 URL 无法被服务端访问，请求可能失败。
+          - generic [ref=e788]: 建议：
+          - list [ref=e789]:
+            - listitem [ref=e790]: 使用公网可访问的 HTTPS 图片地址。
+          - list [ref=e791]:
+            - listitem [ref=e792]: 确保图片 URL 不需要登录、Cookie 或私有 Header。
+          - list [ref=e793]:
+            - listitem [ref=e794]: 如果图片无法公开访问，建议使用 Data URI Base64 输入。
+          - separator [ref=e795]
+          - heading "4. 请求超时" [level=3] [ref=e796]:
+            - generic [ref=e797]:
+              - link "4. 请求超时" [ref=e798] [cursor=pointer]:
+                - /url: "#3764a189eee580ea9e8bd976c015d033"
+                - img [ref=e799]
+              - text: 4. 请求超时
+          - generic [ref=e801]: 图片生成可能需要数秒到几十秒，具体取决于提示词复杂度、图片尺寸和服务负载。
+          - generic [ref=e802]: 建议客户端超时时间设置为：
+          - generic [ref=e803]:
+            - img [ref=e806] [cursor=pointer]
+            - code [ref=e809]: 60s 到 360s
+          - separator [ref=e810]
+          - heading "5. 图生图请求缺少 image" [level=3] [ref=e811]:
+            - generic [ref=e812]:
+              - link "5. 图生图请求缺少 image" [ref=e813] [cursor=pointer]:
+                - /url: "#3764a189eee5801da892ec2b561b8cb0"
+                - img [ref=e814]
+              - generic [ref=e816]:
+                - text: 5. 图生图请求缺少
+                - code [ref=e817]: image
+          - generic [ref=e818]:
+            - text: 图生图请求中，
+            - code [ref=e819]: image
+            - text: 数组为必填。
+          - generic [ref=e820]: 错误示例：
+          - generic [ref=e821]:
+            - img [ref=e824] [cursor=pointer]
+            - code [ref=e827]: "{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Make the image cyberpunk style\", \"size\": \"1024x768\" }"
+          - generic [ref=e828]: 正确示例：
+          - generic [ref=e829]:
+            - img [ref=e832] [cursor=pointer]
+            - code [ref=e835]: "{ \"model\": \"agnes-image-2.1-flash\", \"prompt\": \"Make the image cyberpunk style while preserving the original composition\", \"size\": \"1024x768\", \"extra_body\": { \"image\": [ \"https://example.com/input.png\" ], \"response_format\": \"url\" } }"
+          - separator [ref=e836]
+          - heading "价格" [level=2] [ref=e837]:
+            - generic [ref=e838]:
+              - link "价格" [ref=e839] [cursor=pointer]:
+                - /url: "#3764a189eee58073a15ad6f834b417c8"
+                - img [ref=e840]
+              - text: 价格
+          - table [ref=e842]:
+            - rowgroup [ref=e843]:
+              - row "类型 价格" [ref=e844]:
+                - cell "类型" [ref=e845]:
+                  - generic [ref=e846]: 类型
+                - cell "价格" [ref=e847]:
+                  - generic [ref=e848]: 价格
+              - row "生成图片 0 $0.003 / 张" [ref=e849]:
+                - cell "生成图片" [ref=e850]:
+                  - generic [ref=e851]: 生成图片
+                - cell "0 $0.003 / 张" [ref=e852]:
+                  - generic [ref=e853]: 0 $0.003 / 张
+          - separator [ref=e854]
+          - heading "备注" [level=2] [ref=e855]:
+            - generic [ref=e856]:
+              - link "备注" [ref=e857] [cursor=pointer]:
+                - /url: "#3764a189eee58099942acc744a60351a"
+                - img [ref=e858]
+              - text: 备注
+          - list [ref=e860]:
+            - listitem [ref=e861]:
+              - text: 模型名称固定使用
+              - code [ref=e862]: agnes-image-2.1-flash
+              - text: 。
+          - list [ref=e863]:
+            - listitem [ref=e864]:
+              - text: API Endpoint 使用
+              - code [ref=e865]: https://apihub.agnes-ai.com/v1/images/generations
+              - text: 。
+          - list [ref=e866]:
+            - listitem [ref=e867]:
+              - text: 文生图请求中，
+              - code [ref=e868]: model
+              - text: 、
+              - code [ref=e869]: prompt
+              - text: 、
+              - code [ref=e870]: size
+              - text: 为必填。
+          - list [ref=e871]:
+            - listitem [ref=e872]:
+              - text: 图生图请求中，请将输入图片 URL 或 Data URI Base64 放在顶层
+              - code [ref=e873]: image
+              - text: 数组中。
+          - list [ref=e874]:
+            - listitem [ref=e875]:
+              - text: 需要图片 URL 输出时，使用
+              - code [ref=e876]: "extra_body.response_format: \"url\""
+              - text: 。
+          - list [ref=e877]:
+            - listitem [ref=e878]:
+              - text: 文生图需要 Base64 输出时，使用
+              - code [ref=e879]: "return_base64: true"
+              - text: 。
+          - list [ref=e880]:
+            - listitem [ref=e881]:
+              - text: 图生图需要 Base64 输出时，使用
+              - code [ref=e882]: "extra_body.response_format: \"b64_json\""
+              - text: 。
+          - list [ref=e883]:
+            - listitem [ref=e884]:
+              - text: 不要将
+              - code [ref=e885]: response_format
+              - text: 放在请求体顶层。
+          - list [ref=e886]:
+            - listitem [ref=e887]:
+              - text: 不需要传
+              - code [ref=e888]: "tags: [\"img2img\"]"
+              - text: 。
+          - list [ref=e889]:
+            - listitem [ref=e890]:
+              - text: 公开文档中不要暴露临时 API Key，请使用
+              - code [ref=e891]: YOUR_API_KEY
+              - text: 。
+    - complementary [ref=e892]:
+      - generic [ref=e893]:
+        - generic [ref=e894]: ≡ 本页目录
+        - link "Agnes Image 2.1 Flash" [ref=e895] [cursor=pointer]:
+          - /url: "#heading-agnes-image-21-flash"
+        - link "模型概述" [ref=e896] [cursor=pointer]:
+          - /url: "#heading-模型概述"
+        - link "核心能力" [ref=e897] [cursor=pointer]:
+          - /url: "#heading-核心能力"
+        - link "适用场景" [ref=e898] [cursor=pointer]:
+          - /url: "#heading-适用场景"
+        - link "API 信息" [ref=e899] [cursor=pointer]:
+          - /url: "#heading-api-信息"
+        - link "Base URL" [ref=e900] [cursor=pointer]:
+          - /url: "#heading-base-url"
+        - link "接口地址" [ref=e901] [cursor=pointer]:
+          - /url: "#heading-接口地址"
+        - link "模型名称" [ref=e902] [cursor=pointer]:
+          - /url: "#heading-模型名称"
+        - link "重要说明" [ref=e903] [cursor=pointer]:
+          - /url: "#heading-重要说明"
+        - link "请求参数" [ref=e904] [cursor=pointer]:
+          - /url: "#heading-请求参数"
+        - link "调用示例" [ref=e905] [cursor=pointer]:
+          - /url: "#heading-调用示例"
+        - link "1. 文生图：URL 输出" [ref=e906] [cursor=pointer]:
+          - /url: "#heading-1-文生图url-输出"
+        - link "2. 文生图：Base64 输出" [ref=e907] [cursor=pointer]:
+          - /url: "#heading-2-文生图base64-输出"
+        - link "3. 图生图：URL 输入，URL 输出" [ref=e908] [cursor=pointer]:
+          - /url: "#heading-3-图生图url-输入url-输出"
+        - link "4. 图生图：URL 输入，Base64 输出" [ref=e909] [cursor=pointer]:
+          - /url: "#heading-4-图生图url-输入base64-输出"
+        - link "5. 图生图：Data URI Base64 输入" [ref=e910] [cursor=pointer]:
+          - /url: "#heading-5-图生图data-uri-base64-输入"
+        - link "返回格式" [ref=e911] [cursor=pointer]:
+          - /url: "#heading-返回格式"
+        - link "URL 输出" [ref=e912] [cursor=pointer]:
+          - /url: "#heading-url-输出"
+        - link "Base64 输出" [ref=e913] [cursor=pointer]:
+          - /url: "#heading-base64-输出"
+        - link "推荐提示词结构" [ref=e914] [cursor=pointer]:
+          - /url: "#heading-推荐提示词结构"
+        - link "示例" [ref=e915] [cursor=pointer]:
+          - /url: "#heading-示例"
+        - link "最佳实践" [ref=e916] [cursor=pointer]:
+          - /url: "#heading-最佳实践"
+        - link "文生图建议" [ref=e917] [cursor=pointer]:
+          - /url: "#heading-文生图建议"
+        - link "图生图建议" [ref=e918] [cursor=pointer]:
+          - /url: "#heading-图生图建议"
+        - link "高信息密度图片建议" [ref=e919] [cursor=pointer]:
+          - /url: "#heading-高信息密度图片建议"
+        - link "常见错误与排查" [ref=e920] [cursor=pointer]:
+          - /url: "#heading-常见错误与排查"
+        - link "1. response_format 放在顶层导致报错" [ref=e921] [cursor=pointer]:
+          - /url: "#heading-1-response-format-放在顶层导致报错"
+        - link "2. 图生图不需要 tags" [ref=e922] [cursor=pointer]:
+          - /url: "#heading-2-图生图不需要-tags"
+        - link "3. 输入图片 URL 不可访问" [ref=e923] [cursor=pointer]:
+          - /url: "#heading-3-输入图片-url-不可访问"
+        - link "4. 请求超时" [ref=e924] [cursor=pointer]:
+          - /url: "#heading-4-请求超时"
+        - link "5. 图生图请求缺少 image" [ref=e925] [cursor=pointer]:
+          - /url: "#heading-5-图生图请求缺少-image"
+        - link "价格" [ref=e926] [cursor=pointer]:
+          - /url: "#heading-价格"
+        - link "备注" [ref=e927] [cursor=pointer]:
+          - /url: "#heading-备注"
