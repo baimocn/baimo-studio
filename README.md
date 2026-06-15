@@ -153,6 +153,18 @@ baimo-studio/
 
 </details>
 
+## 贡献者
+
+感谢以下贡献者对项目的改进：
+
+<a href="https://github.com/kline6">
+  <img src="https://github.com/kline6.png" width="50" height="50" alt="kline6" style="border-radius:50%">
+  <br>
+  <sub><b>kline6</b></sub>
+</a>
+
+> 欢迎提交 Pull Request！请先 Fork 本仓库，修改后提交 PR。
+
 ## 许可证
 
 [GNU General Public License v3.0](LICENSE)
