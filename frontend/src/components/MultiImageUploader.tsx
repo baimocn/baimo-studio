@@ -4,7 +4,11 @@ import { useCallback, useRef, useState } from "react"
 import { useToast } from "@/components/Toast"
 
 interface Props {
+<<<<<<< HEAD
   onUpload: (urls: string[]) => void
+=======
+  onUpload: (files: File[]) => void
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
   maxFiles?: number
   maxFileSizeMB?: number
 }
@@ -24,8 +28,13 @@ async function uploadToBackend(file: File): Promise<string> {
   return data.url as string
 }
 
+<<<<<<< HEAD
 export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSizeMB = 20 }: Props) {
   const [previews, setPreviews] = useState<{ blobUrl: string; serverUrl: string }[]>([])
+=======
+export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSizeMB = 10 }: Props) {
+  const [previews, setPreviews] = useState<{ url: string; file: File }[]>([])
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
   const [loading, setLoading] = useState(false)
   const blobUrlsRef = useRef<string[]>([])
   const toast = useToast()
@@ -33,7 +42,12 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
   const handleFiles = useCallback(
     async (files: FileList | File[]) => {
       setLoading(true)
+<<<<<<< HEAD
       const newEntries: { blobUrl: string; serverUrl: string }[] = []
+=======
+      setError(null)
+      const newEntries: { url: string; file: File }[] = []
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
       for (const file of Array.from(files)) {
         if (previews.length + newEntries.length >= maxFiles) break
         if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
@@ -47,16 +61,25 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
         const blobUrl = URL.createObjectURL(file)
         blobUrlsRef.current.push(blobUrl)
         try {
+<<<<<<< HEAD
           const serverUrl = await uploadToBackend(file)
           newEntries.push({ blobUrl, serverUrl })
         } catch (err) {
+=======
+          newEntries.push({ url: blobUrl, file })
+        } catch {
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
           URL.revokeObjectURL(blobUrl)
           toast.error(err instanceof Error ? err.message : `上传 ${file.name} 失败`)
         }
       }
       const updated = [...previews, ...newEntries]
       setPreviews(updated)
+<<<<<<< HEAD
       onUpload(updated.map((e) => e.serverUrl))
+=======
+      onUpload(updated.map((e) => e.file))
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
       setLoading(false)
     },
     [previews, maxFiles, maxFileSizeMB, onUpload, toast]
@@ -68,7 +91,12 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
       if (removed) URL.revokeObjectURL(removed.blobUrl)
       const updated = previews.filter((_, i) => i !== index)
       setPreviews(updated)
+<<<<<<< HEAD
       onUpload(updated.map((e) => e.serverUrl))
+=======
+      setError(null)
+      onUpload(updated.map((e) => e.file))
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
     },
     [previews, onUpload]
   )
@@ -138,3 +166,4 @@ export default function MultiImageUploader({ onUpload, maxFiles = 10, maxFileSiz
     </div>
   )
 }
+

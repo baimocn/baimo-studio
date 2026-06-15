@@ -7,22 +7,17 @@ from ..core.exceptions import AgnesAPIException
 
 logger = logging.getLogger("baimo")
 
-# Module-level shared client, reused across all Agnes services
 _client: httpx.AsyncClient | None = None
 
 
 def _get_client() -> httpx.AsyncClient:
     global _client
     if _client is None or _client.is_closed:
-        _client = httpx.AsyncClient(timeout=120)
+        _client = httpx.AsyncClient(timeout=httpx.Timeout(600.0, connect=30.0))
     return _client
 
 
 class AgnesBaseService:
-    """Base class for Agnes API services. Provides shared client, headers,
-    and uniform request helpers. httpx exceptions are intentionally NOT caught
-    here so they bubble up to the global exception handler in main.py."""
-
     @property
     def client(self) -> httpx.AsyncClient:
         return _get_client()
@@ -35,24 +30,39 @@ class AgnesBaseService:
         }
 
     async def _post(self, url: str, json: dict | None = None, timeout: float | None = None) -> httpx.Response:
-        """POST request. Raises AgnesAPIException on non-200 status."""
-        resp = await self.client.post(url, json=json, headers=self.headers, timeout=timeout)
-        if resp.status_code != 200:
-            logger.error(f"Agnes API error: {resp.status_code} - {resp.text[:500]}")
-            raise AgnesAPIException(f"Agnes API 返回错误 ({resp.status_code})")
-        return resp
+        logger.info(f"Calling API: {url}")
+        try:
+            resp = await self.client.post(url, json=json, headers=self.headers, timeout=timeout or 600.0)
+            logger.info(f"API response: {resp.status_code}")
+            if resp.status_code != 200:
+                logger.error(f"Agnes API error: {resp.status_code} - {resp.text[:500]}")
+                raise AgnesAPIException(f"Agnes API returned error ({resp.status_code})")
+            return resp
+        except httpx.TimeoutException:
+            logger.error(f"API timeout: {url}")
+            raise AgnesAPIException("API request timeout")
+        except Exception as e:
+            logger.error(f"API error: {e}")
+            raise
 
     async def _get(self, url: str, timeout: float | None = None) -> httpx.Response:
-        """GET request. Raises AgnesAPIException on non-200 status."""
-        resp = await self.client.get(url, headers=self.headers, timeout=timeout)
-        if resp.status_code != 200:
-            logger.error(f"Agnes API error: {resp.status_code} - {resp.text[:500]}")
-            raise AgnesAPIException(f"Agnes API 返回错误 ({resp.status_code})")
-        return resp
+        logger.info(f"Calling API GET: {url}")
+        try:
+            resp = await self.client.get(url, headers=self.headers, timeout=timeout or 600.0)
+            logger.info(f"API response: {resp.status_code}")
+            if resp.status_code != 200:
+                logger.error(f"Agnes API error: {resp.status_code} - {resp.text[:500]}")
+                raise AgnesAPIException(f"Agnes API returned error ({resp.status_code})")
+            return resp
+        except httpx.TimeoutException:
+            logger.error(f"API timeout: {url}")
+            raise AgnesAPIException("API request timeout")
+        except Exception as e:
+            logger.error(f"API error: {e}")
+            raise
 
     @staticmethod
     async def close() -> None:
-        """Close the shared HTTP client. Call on application shutdown."""
         global _client
         if _client is not None and not _client.is_closed:
             await _client.aclose()

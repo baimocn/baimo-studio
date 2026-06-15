@@ -111,8 +111,10 @@ app.mount("/uploads", StaticFiles(directory=str(UPLOADS_DIR)), name="uploads")
 if STATIC_DIR.exists():
     app.mount("/_next", StaticFiles(directory=str(STATIC_DIR / "_next")), name="next-assets")
 
-    @app.get("/{path:path}")
-    async def serve_spa(path: str):
+
+
+@app.api_route("/{path:path}", methods=["GET", "HEAD"])
+async def serve_spa(path: str):
         if path.startswith("api/"):
             raise HTTPException(status_code=404)
         file_path = STATIC_DIR / path

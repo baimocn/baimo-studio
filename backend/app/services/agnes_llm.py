@@ -1,5 +1,8 @@
 import json
 import logging
+import sys
+
+import httpx
 
 from ..core.config import settings
 from ..core.exceptions import AgnesAPIException
@@ -18,29 +21,11 @@ Rules:
 5. If the input is vague, make creative choices that align with the mood. Don't ask for clarification — commit to a vision.
 6. Keep the prompt concise but rich — typically 1-3 sentences, 30-80 words.
 7. Output ONLY the optimized prompt. No explanations, no labels, no prefix like "Prompt:".
-8. Always write in English, regardless of the input language.
+8. Always write in English, regardless of the input language."""
 
-Bad example (too mechanical):
-  Input: 一只猫在沙发上
-  Output: A cat on a sofa, high quality, detailed
-
-Good example (creative and vivid):
-  Input: 一只猫在沙发上
-  Output: A fluffy orange tabby cat curled up on a velvet sofa, afternoon sunlight streaming through sheer curtains casting soft warm shadows, shallow depth of field, cozy domestic scene, photorealistic
-
-Bad example (literal translation):
-  Input: 赛博朋克城市
-  Output: A cyberpunk city, neon lights, high quality
-
-Good example (enhanced vision):
-  Input: 赛博朋克城市
-  Output: A sprawling cyberpunk megacity at night, towering holographic billboards casting electric blue and magenta reflections on rain-soaked streets, dense crowd of augmented humans below, cinematic wide-angle shot, blade runner atmosphere, volumetric fog"""
-
-IMAGE_SUFFIX = """\n\nAdditional context: This prompt will be used for AI IMAGE generation. Focus on visual details, composition, and static elements. Emphasize what the viewer sees."""
-
-EDIT_SUFFIX = """\n\nAdditional context: This prompt will be used for AI IMAGE EDITING (image-to-image). The user has uploaded an existing image and wants to modify it. Focus on: 1. What CHANGES to make (new elements, style transfer, modifications). 2. What to PRESERVE from the original image (composition, subject, key features). 3. The target STYLE or MOOD after editing. Structure: [modification request] + [new style/scene] + [elements to add/remove] + [elements to preserve]"""
-
-VIDEO_SUFFIX = """\n\nAdditional context: This prompt will be used for AI VIDEO generation. Include motion cues: what moves, how the camera moves, the pacing. Use verbs that describe action and change."""
+IMAGE_SUFFIX = "\n\nAdditional context: This prompt will be used for AI IMAGE generation. Focus on visual details, composition, and static elements."
+EDIT_SUFFIX = "\n\nAdditional context: This prompt will be used for AI IMAGE EDITING (image-to-image)."
+VIDEO_SUFFIX = "\n\nAdditional context: This prompt will be used for AI VIDEO generation. Include motion cues."
 
 
 def _build_payload(user_input: str, type: str, stream: bool = False) -> dict:
@@ -60,7 +45,6 @@ def _build_payload(user_input: str, type: str, stream: bool = False) -> dict:
 
 
 def _extract_content(msg: dict) -> str:
-    """Extract the final content, preferring content over reasoning_content."""
     content = msg.get("content")
     if content and content.strip():
         return content.strip()
@@ -70,6 +54,17 @@ def _extract_content(msg: dict) -> str:
     return ""
 
 
+def _extract_delta_content(chunk: dict) -> str:
+    """Safely extract content from a streaming chunk."""
+    choices = chunk.get("choices")
+    if not choices or not isinstance(choices, list) or len(choices) == 0:
+        return ""
+    delta = choices[0].get("delta")
+    if not delta:
+        return ""
+    return delta.get("content", "") or ""
+
+
 class AgnesLLMService(AgnesBaseService):
     BASE_URL = f"{settings.agnes_api_base}/v1/chat/completions"
     MODEL = "agnes-2.0-flash"
@@ -77,38 +72,50 @@ class AgnesLLMService(AgnesBaseService):
     async def optimize_prompt(self, user_input: str, type: str = "image") -> str:
         payload = _build_payload(user_input, type, stream=False)
         resp = await self._post(self.BASE_URL, json=payload, timeout=60)
-
         try:
             msg = resp.json()["choices"][0]["message"]
             return _extract_content(msg)
         except (KeyError, IndexError, TypeError) as e:
-            logger.error(f"Agnes LLM response parse error: {e}")
-            raise AgnesAPIException("Agnes API 返回了无法解析的响应")
+            raise AgnesAPIException("Agnes API returned unparseable response")
 
     async def optimize_prompt_stream(self, user_input: str, type: str = "image"):
         payload = _build_payload(user_input, type, stream=True)
+        headers = self.headers
+        logger.info(f"Starting prompt optimization stream for type={type}")
 
-        async with self.client.stream("POST", self.BASE_URL, json=payload, headers=self.headers, timeout=120) as resp:
-            if resp.status_code != 200:
-                body = await resp.aread()
-                logger.error(f"Agnes LLM stream error: {resp.status_code} - {body.decode()[:500]}")
-                raise AgnesAPIException(f"Agnes API 返回错误 ({resp.status_code})")
+        try:
+            async with httpx.AsyncClient(timeout=120.0) as client:
+                async with client.stream("POST", self.BASE_URL, json=payload, headers=headers) as resp:
+                    if resp.status_code != 200:
+                        body = await resp.aread()
+                        logger.error(f"Agnes API stream error: {resp.status_code} - {body[:500]}")
+                        raise AgnesAPIException(f"Agnes API returned error ({resp.status_code})")
 
-            async for line in resp.aiter_lines():
-                if not line.startswith("data: "):
-                    continue
-                data_str = line[6:]
-                if data_str.strip() == "[DONE]":
-                    break
-                try:
-                    chunk = json.loads(data_str)
-                    delta = chunk.get("choices", [{}])[0].get("delta", {})
-                    # 只输出 content，跳过 reasoning_content（思考过程不展示给用户）
-                    content = delta.get("content", "")
-                    if content:
-                        yield content
-                except (json.JSONDecodeError, IndexError, KeyError):
-                    continue
+                    async for line in resp.aiter_lines():
+                        if not line:
+                            continue
+                        if not line.startswith("data: "):
+                            continue
+                        data_str = line[6:]
+                        if data_str.strip() == "[DONE]":
+                            break
+                        try:
+                            chunk = json.loads(data_str)
+                            content = _extract_delta_content(chunk)
+                            if content:
+                                yield content
+                        except json.JSONDecodeError as e:
+                            logger.warning(f"JSON decode error in stream: {e}, data: {data_str[:100]}")
+                            continue
+                        except (IndexError, KeyError) as e:
+                            logger.warning(f"Parse error in stream: {e}")
+                            continue
+        except httpx.TimeoutException:
+            logger.error("Timeout during prompt optimization stream")
+            raise AgnesAPIException("Request timeout")
+        except Exception as e:
+            logger.error(f"Stream error: {e}")
+            raise
 
     async def analyze_image(self, image_url: str, instruction: str = "Describe the content of this image in detail.") -> str:
         payload = {
@@ -124,12 +131,9 @@ class AgnesLLMService(AgnesBaseService):
             ],
             "max_tokens": 2048,
         }
-
         resp = await self._post(self.BASE_URL, json=payload, timeout=60)
-
         try:
             msg = resp.json()["choices"][0]["message"]
             return _extract_content(msg)
         except (KeyError, IndexError, TypeError) as e:
-            logger.error(f"Agnes LLM analyze response parse error: {e}")
-            raise AgnesAPIException("Agnes API 返回了无法解析的响应")
+            raise AgnesAPIException("Agnes API returned unparseable response")

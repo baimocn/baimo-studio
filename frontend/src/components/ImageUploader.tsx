@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { useToast } from "@/components/Toast"
 
 interface Props {
-  onUpload: (dataUri: string) => void
+  onUpload: (file: File) => void
   onError?: (msg: string) => void
   emptyHint?: string
 }
@@ -48,10 +48,17 @@ export default function ImageUploader({ onUpload, onError, emptyHint }: Props) {
       setPreview(blobUrl)
 
       try {
+<<<<<<< HEAD
         const url = await uploadToBackend(file)
         onUpload(url)
       } catch (err) {
         if (onError) onError(err instanceof Error ? err.message : "图片上传失败")
+=======
+
+        onUpload(file)
+      } catch {
+        if (onError) onError("图片读取失败，请重试")
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
       } finally {
         setLoading(false)
       }
@@ -130,3 +137,4 @@ export default function ImageUploader({ onUpload, onError, emptyHint }: Props) {
     </div>
   )
 }
+

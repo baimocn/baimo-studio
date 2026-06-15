@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import useSWR from "swr"
 import useSWRMutation from "swr/mutation"
 import { api } from "@/lib/api"
@@ -20,7 +20,8 @@ export const DEFAULT_VIDEO_PARAMS: VideoParams = {
   frame_rate: 24,
 }
 
-const MAX_POLL_DURATION_MS = 10 * 60 * 1000 // 10 分钟超时
+const MAX_POLL_DURATION_MS = 10 * 60 * 1000 // 10 minutes timeout
+const MAX_RETRIES = 3
 
 interface UseVideoGenerationConfig {
   mutationKey: string
@@ -42,19 +43,16 @@ export function useVideoGeneration(config: UseVideoGenerationConfig) {
   const [seed, setSeed] = useState("")
   const [numInferenceSteps, setNumInferenceSteps] = useState("")
   const [pollStartTime, setPollStartTime] = useState<number | null>(null)
+  const [retryCount, setRetryCount] = useState(0)
 
-  // #58: Restore active video from localStorage on mount
   useEffect(() => {
     const active = getActiveVideos()
     if (active.length > 0) {
-      // Restore the most recent active video
       const latest = active[active.length - 1]
       setVideoId(latest.videoId)
       setTaskCreated(true)
       setPollStartTime(Date.now())
     }
-    // Only run on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const { trigger, isMutating, error: createError } = useSWRMutation(
@@ -78,39 +76,48 @@ export function useVideoGeneration(config: UseVideoGenerationConfig) {
     () => api.video.status(videoId!),
     {
       refreshInterval: (data) => {
-        // 超时保护：10 分钟后停止轮询
         if (pollStartTime && Date.now() - pollStartTime > MAX_POLL_DURATION_MS) return 0
-        if (!data) return 5000
+        if (!data) return 10000
         if (data.status === "completed" || data.status === "failed") return 0
-        return 5000
+        return 10000
       },
-      // 防止短时间内重复请求（5 秒内相同 key 的请求只发一次）
-      dedupingInterval: 5000,
-      // 失败时指数退避重试，最大间隔 30 秒，最多重试 10 次
+      dedupingInterval: 8000,
       onErrorRetry: (error, _key, config, revalidate, { retryCount }) => {
-        // completed/failed 状态下不再重试
         if (statusData?.status === "completed" || statusData?.status === "failed") return
-        // 最多重试 10 次
         if (retryCount >= 10) return
-        // 指数退避：1s, 2s, 4s, 8s, 16s, 30s(cap)...
-        const delay = Math.min(1000 * 2 ** retryCount, 30000)
+        const delay = Math.min(2000 * 2 ** retryCount, 60000)
         setTimeout(() => revalidate({ retryCount }), delay)
       },
     }
   )
 
-  const handleCreate = async () => {
+  const handleCreate = useCallback(async () => {
     if (!prompt.trim()) return
-    const res = await trigger()
-    setVideoId(res.video_id)
-    setTaskCreated(true)
-    setPollStartTime(Date.now())
-    // #58: Persist active video to localStorage
-    saveActiveVideo(res.video_id, prompt)
-  }
+    
+    try {
+      const res = await trigger()
+      setVideoId(res.video_id)
+      setTaskCreated(true)
+      setPollStartTime(Date.now())
+      setRetryCount(0)
+      saveActiveVideo(res.video_id, prompt)
+    } catch (err) {
+      console.error("Video creation failed:", err)
+    }
+  }, [trigger, prompt])
 
-  const handleReset = () => {
-    // #58: Remove from localStorage on explicit reset
+  const handleRetry = useCallback(async () => {
+    if (retryCount >= MAX_RETRIES) {
+      setRetryCount(0)
+      handleReset()
+      return
+    }
+    
+    setRetryCount(prev => prev + 1)
+    await handleCreate()
+  }, [retryCount, handleCreate])
+
+  const handleReset = useCallback(() => {
     if (videoId) removeActiveVideo(videoId)
     setPrompt("")
     setVideoParams(DEFAULT_VIDEO_PARAMS)
@@ -120,9 +127,9 @@ export function useVideoGeneration(config: UseVideoGenerationConfig) {
     setSeed("")
     setNumInferenceSteps("")
     setPollStartTime(null)
-  }
+    setRetryCount(0)
+  }, [videoId])
 
-  // #58: Remove from localStorage when task reaches terminal state
   useEffect(() => {
     if (videoId && statusData && (statusData.status === "completed" || statusData.status === "failed")) {
       removeActiveVideo(videoId)
@@ -147,5 +154,8 @@ export function useVideoGeneration(config: UseVideoGenerationConfig) {
     pollError,
     handleCreate,
     handleReset,
+    handleRetry,
+    retryCount,
+    maxRetries: MAX_RETRIES,
   }
 }

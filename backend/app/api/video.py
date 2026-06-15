@@ -1,7 +1,7 @@
 import time
+import asyncio
 
-import httpx
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -20,9 +20,26 @@ from ..services.agnes_video import AgnesVideoService
 router = APIRouter(prefix="/api/video", tags=["video"])
 
 
+async def _background_create(video_svc, gen_id, **kwargs):
+    """Run video creation in background to avoid frontend timeout."""
+    try:
+        result = await video_svc.create(**kwargs)
+    except Exception:
+        pass
+
+
 @router.post("/create", response_model=VideoCreateResponse)
-async def create(body: VideoCreateRequest, db: AsyncSession = Depends(get_db), video_svc: AgnesVideoService = Depends(get_video_service)):
-    result = await video_svc.create(
+async def create(
+    body: VideoCreateRequest,
+    background_tasks: BackgroundTasks,
+    db: AsyncSession = Depends(get_db),
+    video_svc: AgnesVideoService = Depends(get_video_service),
+):
+    import httpx
+    import json
+    from ..core.config import settings
+
+    payload = video_svc._build_payload(
         prompt=body.prompt,
         image_url=body.image_url,
         mode=body.mode,
@@ -34,6 +51,23 @@ async def create(body: VideoCreateRequest, db: AsyncSession = Depends(get_db), v
         seed=body.seed,
         num_inference_steps=body.num_inference_steps,
     )
+
+    async with httpx.AsyncClient(timeout=httpx.Timeout(120.0, connect=10.0)) as client:
+        resp = await client.post(
+            f"{settings.agnes_api_base}/v1/videos",
+            json=payload,
+            headers=video_svc.headers,
+        )
+        if resp.status_code != 200:
+            raise HTTPException(status_code=502, detail=f"Agnes API error: {resp.status_code}")
+        data = resp.json()
+
+    result = {
+        "video_id": data["video_id"],
+        "task_id": data["task_id"],
+        "status": data["status"],
+    }
+
     gen = Generation(
         type="video", model="agnes-video-v2.0",
         prompt=body.prompt, result_url=result.get("video_id"), status="pending",
@@ -60,15 +94,15 @@ async def status(video_id: str, db: AsyncSession = Depends(get_db), video_svc: A
 @router.get("/download")
 async def download(url: str):
     if not validate_download_url(url):
-        raise HTTPException(status_code=400, detail="不允许下载该域名的文件")
+        raise HTTPException(status_code=400, detail="Invalid download URL")
 
     client = httpx.AsyncClient(timeout=300)
     try:
         resp = await proxy_download(client, url)
     except httpx.ConnectError:
-        raise HTTPException(status_code=502, detail="无法连接到文件服务器")
+        raise HTTPException(status_code=502, detail="Cannot connect to file server")
     except httpx.ConnectTimeout:
-        raise HTTPException(status_code=504, detail="连接文件服务器超时")
+        raise HTTPException(status_code=504, detail="File server connection timeout")
     except RedirectError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     except ContentTooLarge as exc:

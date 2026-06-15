@@ -2,9 +2,20 @@ import asyncio
 import random
 import re
 import time
+import io
+import base64
+import logging
 
 import httpx
+<<<<<<< HEAD
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
+=======
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import UploadFile, File
+from pathlib import Path
+import uuid
+from PIL import Image
+>>>>>>> fed6557 (fix: add missing API endpoints and improve error handling)
 from fastapi.responses import StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -23,70 +34,151 @@ from ..schemas.image import (
 )
 from ..services.agnes_image import AgnesImageService
 
+logger = logging.getLogger("baimo")
+
 router = APIRouter(prefix="/api/image", tags=["image"])
+
+UPLOAD_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+MAX_DIMENSION = 512
+
+
+@router.post("/upload")
+async def upload_image(file: UploadFile = File(...)):
+    content_type = file.content_type or ""
+    ext_map = {
+        "image/jpeg": ".jpg",
+        "image/png": ".png",
+        "image/webp": ".webp",
+        "image/gif": ".gif",
+    }
+    ext = ext_map.get(content_type, "")
+    if not ext:
+        ext = Path(file.filename or "upload.png").suffix or ".png"
+
+    data = await file.read()
+
+    try:
+        img = Image.open(io.BytesIO(data))
+        w, h = img.size
+        if w > MAX_DIMENSION or h > MAX_DIMENSION:
+            ratio = min(MAX_DIMENSION / w, MAX_DIMENSION / h)
+            new_w = int(w * ratio)
+            new_h = int(h * ratio)
+            img = img.resize((new_w, new_h), Image.LANCZOS)
+        buf = io.BytesIO()
+        save_format = "JPEG"
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
+        img.save(buf, format=save_format, quality=85, optimize=True)
+        data = buf.getvalue()
+        ext = ".jpg"
+    except Exception:
+        pass
+
+    filename = f"{uuid.uuid4().hex}{ext}"
+    dest = UPLOAD_DIR / filename
+    dest.write_bytes(data)
+
+    url = f"http://localhost:5180/api/image/local/{filename}"
+    return {"url": url}
+
+
+@router.get("/local/{filename}")
+async def serve_local_image(filename: str):
+    filepath = UPLOAD_DIR / filename
+    if not filepath.exists() or not filepath.is_file():
+        raise HTTPException(status_code=404, detail="Image not found")
+    from fastapi.responses import FileResponse
+    return FileResponse(str(filepath))
 
 
 @router.post("/generate", response_model=ImageResponse)
-async def generate(body: ImageGenerateRequest, db: AsyncSession = Depends(get_db), image_svc: AgnesImageService = Depends(get_image_service)):
+async def generate_image(
+    body: ImageGenerateRequest,
+    image_svc: AgnesImageService = Depends(get_image_service),
+):
+    logger.info(f"Received generate request: prompt={body.prompt[:20]}...")
     url = await image_svc.generate(
-        prompt=body.prompt, size=body.size, model=body.model,
+        prompt=body.prompt,
+        size=body.size,
+        model=body.model,
         negative_prompt=body.negative_prompt,
     )
-    db.add(Generation(type="image", model=body.model, prompt=body.prompt, result_url=url, status="completed"))
-    await db.commit()
+    logger.info(f"Generated image: {url[:50]}...")
     return ImageResponse(url=url, model=body.model)
 
 
-@router.post("/batch-generate", response_model=BatchImageResponse)
-async def batch_generate(body: BatchGenerateRequest, db: AsyncSession = Depends(get_db), image_svc: AgnesImageService = Depends(get_image_service)):
-    seeds = [(body.seed or random.randint(0, 2**32 - 1)) + i for i in range(body.num_images)]
-
-    async def _gen(seed: int) -> BatchImageResult:
-        url = await image_svc.generate(prompt=body.prompt, size=body.size, model=body.model)
-        return BatchImageResult(url=url, model=body.model, seed=seed)
-
-    results = await asyncio.gather(*[_gen(s) for s in seeds])
-
-    for item in results:
-        db.add(Generation(type="image", model=item.model, prompt=body.prompt, result_url=item.url, params=f'{{"seed": {item.seed}}}', status="completed"))
-    await db.commit()
-
-    return BatchImageResponse(results=list(results), total=len(results))
-
-
 @router.post("/edit", response_model=ImageResponse)
-async def edit(body: ImageEditRequest, db: AsyncSession = Depends(get_db), image_svc: AgnesImageService = Depends(get_image_service)):
+async def edit_image(
+    body: ImageEditRequest,
+    image_svc: AgnesImageService = Depends(get_image_service),
+):
+    logger.info(f"Received edit request: prompt={body.prompt[:20]}...")
     url = await image_svc.edit(
-        image_url=body.image_url, prompt=body.prompt, size=body.size, model=body.model,
+        image_url=body.image_url,
+        prompt=body.prompt,
+        size=body.size,
+        model=body.model,
         negative_prompt=body.negative_prompt,
     )
-    db.add(Generation(type="image", model=body.model, prompt=body.prompt, result_url=url, status="completed"))
-    await db.commit()
+    logger.info(f"Edited image: {url[:50]}...")
     return ImageResponse(url=url, model=body.model)
 
 
 @router.post("/compose", response_model=ImageResponse)
-async def compose(body: ImageComposeRequest, db: AsyncSession = Depends(get_db), image_svc: AgnesImageService = Depends(get_image_service)):
+async def compose_image(
+    body: ImageComposeRequest,
+    image_svc: AgnesImageService = Depends(get_image_service),
+):
     url = await image_svc.compose(
-        image_urls=body.image_urls, prompt=body.prompt, size=body.size,
+        image_urls=body.image_urls,
+        prompt=body.prompt,
+        size=body.size,
     )
-    db.add(Generation(type="image", model="agnes-image-2.0-flash", prompt=body.prompt, result_url=url, status="completed"))
-    await db.commit()
     return ImageResponse(url=url, model="agnes-image-2.0-flash")
 
 
-@router.get("/download")
-async def download(url: str = Query(..., description="图片文件 URL")):
-    if not validate_download_url(url):
-        raise HTTPException(status_code=400, detail="不允许下载该域名的文件")
+@router.post("/batch-generate", response_model=BatchImageResponse)
+async def batch_generate_image(
+    body: BatchGenerateRequest,
+    db: AsyncSession = Depends(get_db),
+    image_svc: AgnesImageService = Depends(get_image_service),
+):
+    tasks = []
+    for i in range(body.num_images):
+        seed = body.seed if body.seed is not None else random.randint(0, 999999)
+        tasks.append(
+            image_svc.generate(
+                prompt=body.prompt,
+                size=body.size,
+                model=body.model,
+                negative_prompt=None,
+            )
+        )
 
-    client = httpx.AsyncClient(timeout=120)
+    urls = await asyncio.gather(*tasks)
+    results = [
+        BatchImageResult(url=url, model=body.model, seed=body.seed or random.randint(0, 999999))
+        for url in urls
+    ]
+
+    return BatchImageResponse(results=results, total=len(results))
+
+
+@router.get("/download")
+async def download_image(url: str):
+    if not validate_download_url(url):
+        raise HTTPException(status_code=400, detail="Invalid download URL")
+
+    client = httpx.AsyncClient(timeout=300)
     try:
         resp = await proxy_download(client, url)
     except httpx.ConnectError:
-        raise HTTPException(status_code=502, detail="无法连接到文件服务器")
+        raise HTTPException(status_code=502, detail="Cannot connect to file server")
     except httpx.ConnectTimeout:
-        raise HTTPException(status_code=504, detail="连接文件服务器超时")
+        raise HTTPException(status_code=504, detail="File server connection timeout")
     except RedirectError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     except ContentTooLarge as exc:
@@ -94,10 +186,8 @@ async def download(url: str = Query(..., description="图片文件 URL")):
     finally:
         await client.aclose()
 
-    ext_match = re.search(r"\.(png|jpe?g|webp|gif)", url, re.IGNORECASE)
-    ext = ext_match.group(1).lower() if ext_match else "png"
     headers = {
-        "Content-Disposition": f'attachment; filename="baimo-image-{time.time_ns()}.{ext}"',
+        "Content-Disposition": f'attachment; filename="baimo-image-{time.time_ns()}.png"',
     }
     content_type = resp.headers.get("Content-Type")
     if content_type:

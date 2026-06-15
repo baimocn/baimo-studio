@@ -94,6 +94,41 @@ export default function ImageGenerationLayout({ mode }: Props) {
   const [imageUrls, setImageUrls] = useState<string[]>([]) // compose
   const [batchMode, setBatchMode] = useState(false)      // generate only
   const [numImages, setNumImages] = useState(4)           // generate only
+  const [uploadingImages, setUploadingImages] = useState(false)
+
+  const uploadFileToServer = useCallback(async (file: File): Promise<string> => {
+    const formData = new FormData()
+    formData.append("file", file)
+    const API_BASE = process.env.NEXT_PUBLIC_API_BASE || ""
+    const res = await fetch(`${API_BASE}/api/image/upload`, { method: "POST", body: formData })
+    if (!res.ok) throw new Error("图片上传失败")
+    const data = await res.json()
+    return data.url as string
+  }, [])
+
+  const handleEditUpload = useCallback(async (file: File) => {
+    setUploadingImages(true)
+    try {
+      const url = await uploadFileToServer(file)
+      setImageUrl(url)
+    } catch {
+      toast.error("图片上传失败，请重试")
+    } finally {
+      setUploadingImages(false)
+    }
+  }, [uploadFileToServer, toast])
+
+  const handleComposeUpload = useCallback(async (files: File[]) => {
+    setUploadingImages(true)
+    try {
+      const urls = await Promise.all(files.map((f) => uploadFileToServer(f)))
+      setImageUrls(urls)
+    } catch {
+      toast.error("部分图片上传失败，请重试")
+    } finally {
+      setUploadingImages(false)
+    }
+  }, [uploadFileToServer, toast])
 
   // ── Model list (generate & edit) ──────────────────────────────────
   const { data: modelsData, isLoading: modelsLoading } = useSWR(
@@ -272,11 +307,11 @@ export default function ImageGenerationLayout({ mode }: Props) {
   const renderForm = () => (
     <>
       {mode === "edit" && (
-        <ImageUploader onUpload={setImageUrl} onError={toast.error} emptyHint="请先上传参考图片" />
+        <ImageUploader onUpload={handleEditUpload} onError={toast.error} emptyHint="请先上传参考图片" />
       )}
 
       {mode === "compose" && (
-        <MultiImageUploader onUpload={setImageUrls} maxFiles={5} />
+        <MultiImageUploader onUpload={handleComposeUpload} maxFiles={5} />
       )}
 
       <PromptInput
@@ -318,7 +353,7 @@ export default function ImageGenerationLayout({ mode }: Props) {
 
       <button
         onClick={handleGenerate}
-        disabled={isMutating || !canSubmit}
+        disabled={isMutating || uploadingImages || !canSubmit}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#06b6d4] py-3 text-sm font-medium text-white shadow-lg shadow-[#a855f7]/25 transition hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] disabled:opacity-50"
       >
         {isMutating && (
@@ -358,7 +393,7 @@ export default function ImageGenerationLayout({ mode }: Props) {
     <div className="flex gap-2">
       <button
         onClick={handleRetry}
-        disabled={isMutating || !canSubmit}
+        disabled={isMutating || uploadingImages || !canSubmit}
         className="flex-1 rounded-xl bg-gradient-to-r from-[#a855f7] to-[#06b6d4] py-3 text-sm font-medium text-white shadow-lg shadow-[#a855f7]/25 transition hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] disabled:opacity-50"
       >
         再试一次
@@ -466,3 +501,8 @@ export default function ImageGenerationLayout({ mode }: Props) {
     </div>
   )
 }
+
+
+
+
+
