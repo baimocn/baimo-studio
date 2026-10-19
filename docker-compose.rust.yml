@@ -1,0 +1,58 @@
+# ==============================================================================
+# baimo Studio - Rust Backend + Frontend Docker Compose
+# ==============================================================================
+#
+# Usage:
+#   docker compose -f docker-compose.rust.yml up --build
+#
+# This compose file runs the Rust backend alongside the Next.js frontend.
+# The backend serves the API routes and can also serve the frontend's static
+# export if mounted into /app/frontend/out/.
+# ==============================================================================
+
+services:
+  # ── Rust Backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./rust-backend
+      dockerfile: Dockerfile
+    ports:
+      - "5180:5180"
+    env_file:
+      - ./rust-backend/.env
+    volumes:
+      # Persist SQLite database and uploads across restarts
+      - backend-data:/app/data
+      - backend-uploads:/app/uploads
+      # Mount the Next.js static export into the backend container
+      # so the Rust server can serve the SPA directly
+      - ./frontend/out:/app/frontend/out:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5180/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ── Next.js Frontend (Development) ───────────────────────────────────────
+  # Optional: run the frontend dev server separately during development.
+  # Comment out in production (the Rust backend serves static files).
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5188:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5180/api
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    profiles:
+      - dev
+
+volumes:
+  backend-data:
+  backend-uploads:

@@ -1,0 +1,13 @@
+pub mod health;
+pub mod settings;
+pub mod models_catalog;
+pub mod image;
+pub mod video;
+pub mod prompt;
+pub mod generation;
+pub mod stats;
+pub mod workflow;
+pub mod ws;
+pub mod auth;
+pub mod websocket;
+pub mod upload;

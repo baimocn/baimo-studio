@@ -13,12 +13,12 @@
       "autoStartTerminal": false
     },
     {
-      "id": "01KTVV4B37SBDT1ZBAYWBBF4JH",
-      "name": "风月辰",
+      "id": "01KTXY0DSB6DCW0KETX8YVT8YW",
+      "name": "岑雪凌",
       "role": "",
       "roleKey": "members.roles.member",
       "roleType": "member",
-      "avatar": "css:realistic-4",
+      "avatar": "css:realistic-2",
       "status": "online",
       "autoStartTerminal": true,
       "unlimitedAccess": true,
@@ -27,33 +27,16 @@
       "skillPaths": [
         "C:\\Users\\35955\\AppData\\Roaming\\com.golutra\\skills\\project-development-quality-maintainability"
       ],
-      "terminalType": "opencode",
-      "terminalCommand": "opencode",
-      "soloDocumentPath": ".golutra/members/01KTVV4B37SBDT1ZBAYWBBF4JH/solo.md"
+      "terminalType": "shell",
+      "soloDocumentPath": ".golutra/members/01KTXY0DSB6DCW0KETX8YVT8YW/solo.md"
     },
     {
-      "id": "01KTVV5G27B7GVC6NZHZ8390HD",
-      "name": "项目决策者",
+      "id": "01KTXY21X63A7PAN1FB4CQ8BEN",
+      "name": "mimo",
       "role": "",
-      "roleKey": "members.roles.supervisor",
-      "roleType": "supervisor",
-      "avatar": "/avatar-presets/supervisor/supervisor-default.gif",
-      "status": "online",
-      "autoStartTerminal": true,
-      "unlimitedAccess": true,
-      "collaborationMode": true,
-      "sandboxed": false,
-      "terminalType": "claude",
-      "terminalCommand": "claude",
-      "soloDocumentPath": ".golutra/members/01KTVV5G27B7GVC6NZHZ8390HD/solo.md"
-    },
-    {
-      "id": "01KTVV6R239ZEQBQHZV4TAVZEP",
-      "name": "讨论",
-      "role": "",
-      "roleKey": "members.roles.aiAssistant",
-      "roleType": "assistant",
-      "avatar": "css:realistic-7",
+      "roleKey": "members.roles.member",
+      "roleType": "member",
+      "avatar": "css:realistic-9",
       "status": "online",
       "autoStartTerminal": true,
       "unlimitedAccess": true,
@@ -64,21 +47,12 @@
       ],
       "terminalType": "claude",
       "terminalCommand": "claude",
-      "soloDocumentPath": ".golutra/members/01KTVV6R239ZEQBQHZV4TAVZEP/solo.md"
+      "soloDocumentPath": ".golutra/members/01KTXY21X63A7PAN1FB4CQ8BEN/solo.md"
     }
   ],
   "memberSequence": {},
   "terminal": {
-    "recentClosedTabs": [
-      {
-        "memberId": "01KTVV5G27B7GVC6NZHZ8390HD",
-        "closedAt": 1781198727261
-      },
-      {
-        "memberId": "01KTVV4B37SBDT1ZBAYWBBF4JH",
-        "closedAt": 1781198727260
-      }
-    ]
+    "recentClosedTabs": []
   },
   "inviteSkillSelections": {
     "assistant": [
